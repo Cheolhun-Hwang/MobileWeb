@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>jQuery Event</title>
+    <style>
+        * { margin:0px; padding:0px; }
+		h1 { text-align: center;  }
+
+        /* Animation Canvas */
+        .animation_canvas  {
+            overflow:hidden;
+            position:relative;           
+            width:600px; height:400px;
+            margin:0 auto;
+        }
+    
+        /* Slider Panel */
+        .slider_panel { width:3000px; position:relative; }
+        .slider_image { float:left; width:600px; height:400px; }
+    
+        /* Slider Text Panel */
+        .slider_text_panel { position:absolute; top:200px; left:50px; color: white;}
+        .slider_text { position:absolute; width:250px; height:150px; }
+    
+        /* Control Panel */
+        .control_panel  {
+            position:absolute; top:380px; 
+            left:270px; height:13px; 
+            overflow:hidden; 
+        }
+
+        .control_button {
+            width:12px; height:46px;
+            position:relative;     
+            float:left; cursor:pointer;  
+            background:url('./img/point_button.png');
+        }
+        /* point_button.png 그림에 표시부분을 제한하고 마우스 hover/active시
+           이미지가 변하는 효과를 위해 top 속성을 지정 */
+        .control_button:hover { top:-16px; }
+        .control_button.active { top:-31px; }
+    </style>
+    
+	<script src="./js/jquery-3.2.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // 슬라이더를 움직여주는 함수
+            function moveSlider(index) {
+                // 슬라이더를 이동합니다.
+                var willMoveLeft = -(index * 600);
+                $('.slider_panel').animate({ left: willMoveLeft }, 'slow');
+
+                // control_button에 active클래스를 부여/제거합니다.
+                $('.control_button[data-index=' + index + ']').addClass('active');
+                $('.control_button[data-index!=' + index + ']').removeClass('active');
+
+                // 글자를 이동합니다.
+                $('.slider_text[data-index=' + index + ']').show().animate({
+                    left: 0
+                }, 'slow');
+                
+                $('.slider_text[data-index!=' + index + ']').hide('slow', function () {
+                    $(this).css('left', -300);
+                });
+            }
+
+            // 초기 텍스트 위치 지정 및 data-index 할당
+            $('.slider_text').css('left', -300).each(function (index) {
+                $(this).attr('data-index', index);
+            });
+
+            // 컨트롤 버튼의 클릭 핸들러 지정 및 data-index 할당
+            $('.control_button').each(function (index) {
+                $(this).attr('data-index', index);
+            }).click(function () {
+                var index = $(this).attr('data-index');
+                moveSlider(index);
+            });
+
+            // 초기 슬라이더 위치 지정
+            var randomNumber = Math.round(Math.random() * 5);
+            moveSlider(randomNumber);
+        });
+    </script>
+</head>
+<body>
+    <!-- 애니메이션 캔버스 구성
+         - slider_panel : 이미지를 담는 패널, 움직이며 이미지 전환 효과 
+         - slider_text_panel : 글자를 담는 패널
+         - control_panel : 컨트롤 버튼을 담는 패널
+    -->
+    <div class="animation_canvas">
+        <div class="slider_panel">
+            <img src="./img/Desert.jpg" class="slider_image"/>
+            <img src="./img/Hydrangeas.jpg" class="slider_image"/>
+            <img src="./img/Jellyfish.jpg" class="slider_image"/>
+            <img src="./img/Koala.jpg" class="slider_image"/>
+            <img src="./img/Lighthouse.jpg" class="slider_image"/>
+        </div>
+        <div class="slider_text_panel">
+            <div class="slider_text">
+                <h1>Lorem ipsum</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <div class="slider_text">
+                 <h1>Lorem ipsum</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>            
+            </div>
+            <div class="slider_text">
+                 <h1>Lorem ipsum</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>            
+            </div>
+            <div class="slider_text">
+                <h1>Lorem ipsum</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>            
+            </div>
+            <div class="slider_text">
+                <h1>Lorem ipsum</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+        </div>
+        <div class="control_panel">
+            <div class="control_button"></div>
+            <div class="control_button"></div>
+            <div class="control_button"></div>
+            <div class="control_button"></div>
+            <div class="control_button"></div>
+        </div>
+    </div>
+    <h1>Image Slider</h1>
+</body>
+</html>

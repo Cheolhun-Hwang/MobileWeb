@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery Event</title>
+		<script src="./js/jquery-3.2.1.min.js"></script>
+		<style>
+			html * { margin:0; padding:0; }
+			#control { padding: 10px;}
+			#red_box { width:100px; height:100px; background-color:red; 
+					   border:2px solid blue; position:absolute; left:10px; }
+			#green_box { width:100px; height:100px; background-color:green; 
+			             border:2px solid blue; position:absolute; left:10px; top:160px; }
+			#blue_box { width:100px; height:100px; background-color:blue; 
+			            border:2px solid blue; position:absolute; left:10px; top:280px; }
+			#yellow_box { width:100px; height:100px; background-color:yellow; 
+			              border:2px solid blue; position:absolute; left:10px; top:400px; }
+		</style>
+		<script>
+			$(document).ready(function () {
+				var $redBox = $('#red_box');
+				var $greenBox = $('#green_box');
+				var $blueBox = $('#blue_box');
+				var $yellowBox = $('#yellow_box');
+				
+				$('#wrap #control > :input').click(function(){
+					$redBox.css('left', 10)//이벤트가 발생하면 left 마진을 10px로 지정
+						.delay(100)//0.1초 지연
+						.animate({left:'90%'});
+						
+					$greenBox.css('left', 10)
+						.delay(200)//0.2초 지연
+						.animate({left:'90%'});
+						
+					$blueBox.css('left', 10)
+						.delay(300)//0.3초 지연
+						.animate({left:'90%'});
+					
+					$yellowBox.css('left', 10)
+						.delay(400)//0.4초 지연
+						.animate({left:'90%'});
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div id="wrap">
+			<div id="control">
+				<input class="left" type="button" value="move" />
+			</div>
+
+			<div id="red_box"></div>
+			<div id="green_box"></div>
+			<div id="blue_box"></div>
+			<div id="yellow_box"></div>
+		</div>
+	</body>
+</html>
+
+

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery Basic</title>
+		<script src="./js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript">	
+				$(document).ready(function() {
+				  		  $("a[title]").css("background-color","yellow");// title 속성이 포함된 요소
+						  $("a[href='http://www.nate.com']").css("background-color","pink");//속성값이 http://www.nate.com인 요소
+						  $("a[href^='mailto']").css("background-color","aqua");//속성값이 mailto로 시작하는 요소
+						  $("a[href$='net']").css("background-color","skyblue");//속성값이 net으로 끝나는 요소
+						  $("a[href*='google']").css("background-color","orange");	//속성값에 google이 포함된 요소	
+				 });			
+		</script>		
+	</head>
+	<body>
+			<div id="content" >
+				   <h1>속성 탐색 선택자</h1>
+				   <ul>
+				      <li>
+				            <a href="http://www.naver.com" title="네이버 이동">네이버</a>
+				      </li>
+				      <li><a href="mailto:ciycc@naver.com">관리자에게</a></li>
+				      <li><a href="http://www.nate.com">네이트</a></li>
+				      <li><a href="http://www.daum.net">다음</a></li>
+				      <li><a href="http://www.google.com">구글</a></li>
+				   </ul>
+			</div>
+	</body>
+</html>
+
+
+
+

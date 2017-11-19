@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery Basic</title>
+		<script src="./js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript">	
+				$(document).ready(function() {
+				  		$("li:nth-child(3)").css("background-color","yellow");//3번째 요소
+      					$("li:nth-child(2n)").css("background-color","skyblue");//2의 배수 요소
+				 });			
+		</script>		
+	</head>
+	<body>
+			<div id="content" >
+				   <h1>탐색 선택자</h1>
+				   <ul>
+					      <li>내용1</li>
+					      <li>내용2</li>					      
+						  <li>내용3</li>
+						  <li>내용4</li>
+				   </ul>
+				   <ul>
+					      <li>내용5</li>
+					      <li>내용6</li>
+					      <li>내용7</li>
+					      <li>내용8</li>
+				   </ul>
+			</div>
+	</body>
+</html>
+
+
+
+

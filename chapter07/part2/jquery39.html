@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery Event</title>
+		<script src="./js/jquery-3.2.1.min.js"></script>
+		<style>
+			html * { margin:0; padding:0; }
+			body { margin-top:150px; margin-left:500px; }
+			#wrap { margin-top:20px; }
+			#box { width:300px; height:300px; background-color:blue; border:2px solid blue; }
+			input { width:100px; height:50px; }
+		</style>
+		<script>
+			$(document).ready(function () {
+				var $control = $('#control');
+				var $slideUpBtn = $control.find('> input:eq(0)');
+				var $slideDownBtn = $control.find('> input:eq(1)');
+				var $box = $('#box');
+				
+				$slideUpBtn.click(function(){
+					$box.slideUp(1000);//1초안에 높이값을 0으로 줄이고
+				});				
+				$slideDownBtn.click(function(){
+					$box.slideDown(1000);//1초안에 높이값을 높여주고
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div id="control"><!-- control button -->
+			<input type="button" value="slideUp" />
+			<input type="button" value="slideDown" />
+		</div>
+		<div id="wrap">
+			<div id="box"></div><!-- 애니메이션 box -->
+		</div>
+	</body>
+</html>
+
+

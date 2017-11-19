@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery Basic</title>
+		<script src="./js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript">	
+				$(document).ready(function() {
+					 // 변수(배열)를 선언.
+					var content = [
+						{ name: '윤인성', region: '서울특별시 강서구' },
+						{ name: '윤하린', region: '서울특별시 광진구' },
+						{ name: '윤인아', region: '미국 메사추세츠' }
+					];
+	
+					// 각 <div> 태그에 문서 객체를 추가.
+					$('div').append(function (index) {
+						var item = content[index];//content배열의 값을 저장
+						var output = '';
+						output += '<h1>' + item.name + '</h1>';
+						output += '<h3>' + item.region + '</h3>';
+	
+						return output;
+					});
+
+				});			
+		</script>		
+	</head>
+	<body>
+			<div></div>
+			<div></div>
+			<div></div>    
+	</body>
+</html>
+
+
+
+

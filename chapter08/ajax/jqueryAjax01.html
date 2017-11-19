@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>jQuery Ajax</title>
+    <script src="./js/jquery-3.2.1.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+
+            // XML 파일 처리
+            $('#btnLoad1').click(function() {
+                $.ajax({
+                    url:'xml-data.xml',
+                    type:'get',
+                    dataType:'xml',
+                    timeout:10000,
+                    success:function(xmlData){
+                        var tagList="";
+                        $(xmlData).find("student").each(function(){
+                            tagList+="<li>"+$(this).find("studentName").text()+"</li>";
+                        });
+
+                        $('#listArea').empty();
+                        $('#listArea').append(tagList);
+                        $('#listArea').show();
+                    }
+                });
+            });
+
+            // JSON 파일 처리
+            $('#btnLoad2').click(function() {
+                $.getJSON('json-data.json', function(jsonData) {
+                    var tagList="";
+                    $.each(jsonData.stuinfo, function(){
+                        tagList += "<li>"+this.grade+"</li>";
+                    });
+                    $('#listArea').empty();
+                    $('#listArea').append(tagList);
+                    $('#listArea').show();
+                });
+            });
+
+            // HTML 파일 처리
+            $('#btnLoad3').click(function() {
+                $('#listArea').empty();
+                //서버로부터 데이터를 받아(htmlData 저장), 메소드를 실행하는 대상 엘리먼트(#listArea)에 직접 추가 			
+                $('#listArea').load('html-data.html > li', function(htmlData){
+                    $('#listArea').show();
+                });
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+    <div>
+        <div>
+            <h1>Ajax 활용</h1>
+        </div>
+        <div>
+            <button id="btnLoad1">XML</button>
+            <button id="btnLoad2">JSON</button>
+            <button id="btnLoad3">HTML</button>
+        </div>
+        <hr>
+        <div>
+            <ul id="listArea">
+                <li id="item">데이터 로드 하기 전 . . .</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+
+

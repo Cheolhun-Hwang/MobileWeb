@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <title>jQuery Event</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="./js/jquery-3.2.1.min.js"></script>
+    <script src="./js/app.js"></script>
+</head>
+
+<body>
+    <!-- 이미지 목록 -->
+    <header>
+        <h1>가을 단풍</h1>
+        <img class="thumb" src="./img/img1.jpg" width="150" height="100" />
+        <img class="thumb" src="./img/img2.jpg" width="150" height="100" />
+        <img class="thumb" src="./img/img3.jpg" width="150" height="100" />
+    </header>
+
+    <!-- 라이트 박스 배경 
+         - 라이트박스가 열릴 때만 배경 위에 표시됨 -->
+    <div id="block"></div>
+
+   <!-- 라이트박스 창 
+        - 이미지영역, 인디케이터, 닫기버튼으로 구성 -->   
+    <div id="lightbox">
+        <h1>아름다운 2017년 가을단풍</h1>
+        <p>신선한 날씨, 빨갛게 물든 단풍까지....<br> 훌쩍 찿아온 2017년의 가을단풍을 보면서 괜히 설레이기 시작하는 것이....<br> 이 가을을 얼마나 기다렸던가 싶습니다........</p>
+        
+        <!-- 이미지 영역 -->
+        <figure>
+            <img src="./img/img1.jpg" alt="" />
+            <img src="./img/img2.jpg" alt="" />
+            <img src="./img/img3.jpg" alt="" />
+        </figure>
+
+        <!-- 인디케이터 -->
+        <div class="indicator">
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+        </div>
+        
+         <!-- 닫기버튼 -->
+        <div class="btn-close">X</div>
+    </div>
+    <!-- end lightbox -->
+
+</body>
+
+</html>

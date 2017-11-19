@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>To-Do List</title>
+	<style>
+		#add-btn{
+			padding: 5px 10px;
+			border: 0;
+			background: #f80; color: white;
+			border-radius: 5px;
+		}
+		ul{ 
+			padding: 0; 
+			list-style-position: inside;
+		}
+		li{
+			border-bottom: 1px solid #999;
+			padding: 5px 0;
+		}
+		.active{ background: #abc; } /* step3: 목록 클릭 스타일 */
+	</style>
+</head>
+<body>	
+	<h1 id='title'>To-Do List</h1>
+	
+	<button id="add-btn">할일 추가</button>
+
+	<ul id='list'>
+		<li>아침 운동(06:00)</li>
+		<li>스터디그룹 미팅(10:00)</li>
+	</ul>
+
+<script>
+
+	// 필요한 문서객체를 가져와서 저장
+	var title = document.getElementById('title'); 
+	var list = document.getElementById('list');
+	var li = list.getElementsByTagName('li');
+	var addBtn = document.getElementById('add-btn');// 할일 추가 버튼
+
+	// list(ul)에 이벤트 리스너 등록(activeItem() 함수)
+	list.addEventListener('click', activeItem); 
+
+    // list 항목을 클릭(이벤트가 발행)하면 처리할 콜백함수 선언
+	function activeItem(event){
+		/* 클릭한 목록 스타일 지정 
+            - 이벤트가 발생하면 콜백함수(activeItem)에 event가 전달됨
+            - event.target : 현재 클릭한 객체를 의미
+            - event.target.nodeName : 클릭한 객체의 요소를 의미
+        */
+        // 클릭한 요소가 'LI'이면(nodeName이 대문자로 반환되므로 'LI'로 비교)
+		// 클릭한 요소가 'li'인지 비교하는 부분 이부분 필요
+		if(event.target.nodeName == 'LI'){
+            /* 요소를 클릭할 때 마다 title 변경
+               - title의 innerHTML에 클릭한 요소의 텍스트(innerText)를 할당
+            */
+			title.innerHTML=event.target.innerHTML;
+
+			/* 목록 스타일 초기화
+               1) 기존 목록에 있는 'class' 속성을 제거
+               2) 현재 클릭한 요소에 목록 스타일 지정(.active)
+            */
+			for(var i = 0; i < li.length; i++){
+				li[i].removeAttribute('class');
+			}
+			// 클릭한 목록 스타일 지정(클릭한 목록에 'active' 클래스 설정)
+			event.target.setAttribute('class', 'active'); // 클릭한 대상		
+            
+		}	// end if
+	}	// end function		
+
+	// '할일 추가' 버튼을 클릭하면 li목록을 추가하기 위해 버튼에 이벤트 리스너 등록(익명함수)
+	addBtn.addEventListener('click', ()=> {
+        // 제목 입력 
+		var listTitle = prompt('제목 입력', '');
+        
+        // 입력한 값이 null 또는 ''이 아니면 목록 추가
+        if(listTitle == null || listTitle == ''){
+
+		}else{
+
+			list.innerHTML=list.innerHTML+"<li>"+ listTitle +"</li>";
+		}
+	});
+
+</script>	
+
+</body>
+</html>

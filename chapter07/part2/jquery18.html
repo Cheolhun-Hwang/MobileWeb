@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery Event</title>
+		<script src="./js/jquery-3.2.1.min.js"></script>
+		<style>
+			html * { margin:0; padding:0; }
+			body span { color:red; font-size: 30px; }
+			#wrap { width:1024px; height:1024px; }
+			#box { width:400px; height:400px; border:2px solid blue; 
+				   margin-left:300px; margin-top:100px; position:fixed; }
+			#box > p { margin-top:60px; margin-left:150px; }
+			p > span { margin:0; }
+		</style>
+		<script>
+				$(document).ready(function () {
+						var clientx = $('#clientx');
+						var clienty = $('#clienty');
+						var offsetx = $('#offsetx');
+						var offsety = $('#offsety');
+						var pagex = $('#pagex');
+						var pagey = $('#pagey');
+						var screenx = $('#screenx');
+						var screeny = $('#screeny');
+						
+						//이벤트 발생시 콜백함수의 매개변수로 event객체를 넘겨줌
+						//event.property를 사용하면 다양한 값을 가져올 수 있음
+						$('#box').mousemove(function(e) { 
+							clientx.text(e.clientX);//x좌표값(스크롤 이동값 제외)
+							clienty.text(e.clientY);//y좌표값(스크롤 이동값 제외)
+							offsetx.text(e.offsetX);//이벤트발생시 이벤트 대상으로부터 x좌표값)
+							offsety.text(e.offsetY);//이벤트발생시 이벤트 대상으로부터 y좌표값)
+							pagex.text(e.pageX);//x좌표값(스크롤 이동값 포함)
+							pagey.text(e.pageY);//y좌표값(스크롤 이동값 포함)
+							screenx.text(e.screenX);//x좌표값(모니터 화면 기준)
+							screeny.text(e.screenY);//y좌표값(모니터 화면 기준)
+						});				
+				});
+		</script>
+	</head>
+	<body>
+		<div id="wrap">
+				<div id="box">
+					<p>
+						clientX = <span id="clientx">0</span><br>
+						clientY = <span id="clienty">0</span><br>
+						offsetX = <span id="offsetx">0</span><br>
+						offsetY = <span id="offsety">0</span><br>
+						pageX = <span id="pagex">0</span><br>
+						pageY = <span id="pagey">0</span><br>
+						screenX = <span id="screenx">0</span><br>
+						screenY = <span id="screeny">0</span>
+					</p>
+				</div>
+			</div>
+	</body>
+</html>
+

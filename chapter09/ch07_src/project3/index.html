@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>quiz app</title>
+	<script src="./js/jquery-3.2.1.min.js"></script>
+	<link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+	<div class="grid">
+		<h1>퀴즈</h1>
+		<div id="quiz">
+		    <!-- 문제 출력 영역 -->
+			<p id="question"></p>
+
+            <!-- 사지선다형 답안(4개의 버튼) 영역 -->
+			<div class="buttons">
+				<button class="btn"></button>
+				<button class="btn"></button>
+				<button class="btn"></button>
+				<button class="btn"></button>
+			</div>
+			
+			<footer>
+			    <!-- 진행 정보 표시 영역 -->
+				<p id="progress">문제 x of y.</p>	
+			</footer>
+		</div><!-- end quiz -->
+	</div><!-- end grid -->
+
+<script src="./js/app.js"></script>
+
+</body>
+</html>

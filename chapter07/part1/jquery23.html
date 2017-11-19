@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery Basic</title>
+		<script src="./js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript">	
+				$(document).ready(function() {
+						$("div").html(function(i, content) {
+								if (i == 0)	{
+									return content + "001";
+								} else if (i == 1)	{
+									return content + "최수영";
+								} else {
+									return content + "201525001";
+								}
+						});
+					});			
+		</script>		
+	</head>
+	<body>
+		   	<div>순번 : </div>
+			<div>이름 : </div>
+			<div>학번 : </div>
+	</body>
+</html>
+
+
+
+

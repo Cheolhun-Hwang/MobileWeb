@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content=="width=device-width, initial-scale=1,
+        minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<title>Document3</title>
+	
+		
+        <style>
+            /*
+                공통으로 적용할 스타일을 먼저 작성하고 난 다음에 미디어 쿼리를 작성한다.
+            */
+            *{
+                margin:  0;
+                padding: 0;
+            }
+
+            #wrapper{
+                width: 90%;
+                margin: 0 auto;
+                border:  4px solid #000000;
+                overflow: hidden;
+            }
+            #wrapper div{
+                height: 100px;
+            }
+
+            #wrapper div:first-child{
+                background: #f45780;
+                float: left;
+            }
+            #wrapper div:nth-child(2){
+                background: #40b0f9;
+                float: left;
+            }
+            #wrapper div:nth-child(3){
+                background: #00d2a5;
+                float: left;
+            }
+            #wrapper div:nth-child(4){
+                background: #ff884d;
+                float: left;
+            }
+            #wrapper div:last-child{
+                background: #464646;
+                float: left;
+            }
+            /*
+                최소 320px가지만 정의되어 있다. 그 이하는 max-width 319로 정의
+            */
+            @media all and (min-width:320px){
+                #wrapper div{
+                    width: 100%;
+                }
+            }
+
+            @media all and (min-width:768px){
+                #wrapper div{
+                    width: 50%;
+                }
+                #wrapper div:last-child{
+                    width: 100%;
+                }
+            }
+
+            @media all and (min-width:960px){
+                #wrapper div{
+                    width: 15%;
+                }
+                #wrapper div:last-child{
+                    width: 40%;
+                }
+            }
+        </style>
+        
+	</head>
+	<body>
+	
+		<div id="wrapper">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+	
+	</body>
+</html>

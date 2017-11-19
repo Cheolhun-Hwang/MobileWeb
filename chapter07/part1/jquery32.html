@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery Basic</title>
+		<script src="./js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript">	
+			$(document).ready(function() {
+				// 배열 선언.
+	            var array = [
+	                { name: 'jQuery', link: 'http://www.jquery.com' },
+	                { name: 'Naver', link: 'http://www.naver.com' },
+	                { name: 'google', link: 'http://www.google.com' },
+	            ];
+	            	
+	            // $.each() 메서드를 사용하여 배열내 데이터 처리.
+	            $.each(array, function (index, item) {
+	                // 변수를 선언
+	                var output = '';
+	
+	                // "content"에 추가할 문자열 생성
+	                output += '<a href="' + item.link + '">';
+	                output += '    <h2>' + item.name + '</h2>';
+	                output += '</a>';
+	
+	                // "content"에 내용 추가
+					$("#content").append(output);
+	            });
+        	});	
+		</script>		
+	</head>
+	<body>
+		<div id="content"></div>
+	</body>
+</html>

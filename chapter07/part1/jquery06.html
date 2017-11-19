@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery Basic</title>
+		<script src="js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript">	
+			$(document).ready(function() {
+				    $("#tit").css("background-color","yellow")
+                             .css("border", "1px solid red"); 
+				    $(".test").css("background-color","aqua")
+                              .css("border", "1px solid blue"); 
+			});
+			
+		</script>
+	</head>
+	<body>
+	       <h1 id="tit">제이쿼리</h1>
+		   <h2 id="tit">직접 선택자및 관계 선택자</h2>
+		   <h3 class="test">직접 선택자</h3>
+		   <h3 class="test">관계 선택자</h3>
+	</body>
+</html>

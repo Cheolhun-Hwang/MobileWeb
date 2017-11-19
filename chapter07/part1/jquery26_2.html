@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>jQuery Basic</title>
+    <script src="./js/jquery-3.2.1.min.js"></script>		
+    <script type="text/javascript">	
+        // 웹 페이지를 모두 불러오면
+        $(document).ready(function () {
+            // text() 메소드와 html() 메소드의 리턴 값을 출력합니다.
+            alert($('p').text());
+            alert($('p').html());
+        });
+    </script>
+</head>
+<body>
+    <p>TestA</p>
+    <p>TestB</p>
+    <p>TestC</p>
+</body>
+</html>

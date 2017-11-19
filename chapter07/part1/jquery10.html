@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery Basic</title>
+		<script src="js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript">	
+			$(document).ready(function() {
+				  $("#friends tbody >  tr").css("background-color", "aqua");
+			});			
+		</script>
+	</head>
+	<body>
+			<div id="content">
+					<h1>우리반 주소록</h1><hr>
+							<table id="friends">
+								<tr>
+									<th>학번</th><th>이름</th><th>전화번호</th>
+								</tr>
+								<tr>
+									<td>21654001</td><td>손흥민</td><td>010-1234-1111</td>
+								</tr>
+								<tr>
+									<td>21654002</td><td>기성용</td><td>010-1234-2222</td>
+								</tr>
+								<tr>
+									<td>21654003</td><td>구자철</td><td>010-1234-3333</td>
+								</tr>
+								<tr>
+									<td>21654004</td><td>이청용</td><td>010-1234-4444</td>
+								</tr>													
+							</table>
+			</div>
+	</body>
+</html>
+
+

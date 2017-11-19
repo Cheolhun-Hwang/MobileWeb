@@ -1,0 +1,13 @@
+@charset "utf-8";
+/*  Reset CSS  */
+* { margin:0;  padding:0;}
+ol,ul { list-style: none; }
+a { outline:0; text-decoration:none; color:#555; }
+img { border:0;}
+
+div {width:300px; height:300px; float: left; 
+     background:lightgreen; margin:50px;}
+
+/* 가로축거리 세로축거리, 퍼짐도(blur) 색상 */
+div:nth-child(1) {box-shadow: 10px 10px 10px #333;}
+div:nth-child(2) {box-shadow: -10px -10px 20px #333;}

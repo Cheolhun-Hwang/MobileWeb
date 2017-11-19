@@ -1,0 +1,28 @@
+@charset "utf-8";
+/*  Reset CSS  */
+* { margin:0;  padding:0;}
+ol,ul { list-style: none; }
+a { outline:0; text-decoration:none; color:#555; }
+img { border:0;}
+
+ ul li {  color : white;
+            display:inline-block;
+            width:200px; height:100px;
+            text-align:center;
+            background-color:blue;
+ }
+
+ul li:nth-child(2) {
+    background-color:blue;
+    opacity:1;
+}
+
+ul li:nth-child(3) {
+    background-color:blue;
+    opacity:0.7;
+}
+
+ul li:nth-child(4) {
+    background-color:blue;
+    opacity:0.4;
+}

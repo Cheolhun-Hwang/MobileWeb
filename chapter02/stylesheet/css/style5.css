@@ -1,0 +1,16 @@
+@charset "utf-8";
+/*  Reset CSS  */
+* { margin:0;  padding:0;}
+ol,ul { list-style: none; }
+a { outline:0; text-decoration:none; color:#555; }
+img { border:0;}
+
+div {width:200px; height:200px; float: left; margin:50px;}
+
+/* 그라디언트모양(방향, 색상1, 색상2) */
+/* 선형 그라디언트 */
+div:nth-child(1) {background:linear-gradient(to right, blue, red);}
+div:nth-child(2) {background:linear-gradient(to bottom, blue, red);}
+div:nth-child(3) {background:linear-gradient(45deg, blue, red);}
+/* 원형 그라디언트 */
+div:nth-child(4) {background:radial-gradient(blue, red);}

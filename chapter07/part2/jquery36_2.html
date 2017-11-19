@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery Event</title>
+		<script src="./js/jquery-3.2.1.min.js"></script>
+		<script>
+			$(document).ready(function () {
+				$("#show").click(function() {
+					$("#a").show(1000);
+				});
+				$("#hide").click(function() {
+					$("#a").hide(1000);
+				});
+				$("#toggle").click(function() {
+					$("#a").toggle(1000);
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<button id="show">show</button>
+		<button id="hide">hide</button>
+		<button id="toggle">toggle</button>
+		<br />
+		<img id="a" src="./img/free3.jpg" style="display:none" />
+	</body>
+</html>
+
+

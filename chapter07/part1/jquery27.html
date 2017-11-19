@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery Basic</title>
+		<script src="./js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript">	
+			$(document).ready(()=>{
+				$("#springBtn").on('click', ()=>{
+					$("#image > img").attr({src:'img/spring.jpg', alt:'봄'});
+				});
+				$("#summerBtn").on('click', ()=>{
+					$("#image > img").attr({src:'img/summer.jpg', alt:'봄'});
+				});
+				$("#fallBtn").on('click', ()=>{
+					$("#image > img").attr({src:'img/fall.jpg', alt:'봄'});
+				});
+				$("#winterBtn").on('click', ()=>{
+					$("#image > img").attr({src:'img/winter.jpg', alt:'봄'});
+				});
+			});
+			
+
+		</script>		
+		<style>
+				html * { margin:0; padding:0; }
+				body { padding:10px;  margin-top:100px;}
+				#wrap { width:522px; margin:0 auto; text-align:center;}
+				
+				li { float: left; list-style: none; margin-left: 10px; 
+				     width:123px; height:40px; display:block}
+				li.first { margin-left:0px; }
+				
+				#nav {width:522px; height:40px; margin: 0px auto 10px auto; }
+				#image { width:522px; height:400px; margin: 10px auto 0px auto; }
+		</style>
+	</head>
+	<body>
+			<div id="wrap">
+				<div id="nav">
+					<ul>
+						<li id="springBtn" class="first">
+							<a href="#"><img src="./img/btn1_2.jpg" /></a>
+						</li>
+						<li id="summerBtn">
+							<a href="#"><img src="./img/btn2_2.jpg" /></a>
+						</li>
+						<li id="fallBtn">
+							<a href="#"><img src="./img/btn3_2.jpg" /></a>
+						</li>
+						<li id="winterBtn">
+							<a href="#"><img src="./img/btn4_2.jpg" /></a>
+						</li>
+					</ul>
+				</div>
+				
+				<div id="image" >
+						<img src="./img/spring.jpg" alt="봄" />
+				</div>
+		</div>
+	</body>
+</html>
+
+
+
+

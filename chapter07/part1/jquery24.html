@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery Basic</title>
+		<script src="./js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript">	
+				$(document).ready(function() {
+						var $cont = $("#hidden").html();
+						$("#wrap").html($cont);
+				});			
+		</script>		
+		<style>
+				body > span {padding:20px 25px; color:red; font-size:20px; }
+				
+				#wrap { border:1px solid blue; padding:20px; margin:20px; font-size:20px; }
+				
+				li { margin:5px; list-style:none; border:1px solid green; }
+				
+				#hidden { display:none; } 
+		</style>
+	</head>
+	<body>
+		<span> 특정 요소의 값을 읽어 다른 요소의 내용을 바꿔주는 방법</span>
+
+		<div id="wrap">
+			<span>이곳의 내용을 바꿔 주세요.</span>
+		</div>
+
+		<div id="hidden">
+			<ul>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+			</ul>
+		</div>
+	</body>
+</html>
+
+
+
+

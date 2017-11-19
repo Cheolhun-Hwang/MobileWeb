@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Bootstrap, Components </title>
+
+    <!-- Bootstrap css -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/kfont.css" rel="stylesheet">
+    <link href="css/doc.css" rel="stylesheet">
+    <!-- Fontawesome css -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="js/bootstrap.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and Media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <style>
+        body>div {
+            border: 1px solid gray;
+        }
+        
+        ul {
+            list-style: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- components
+  		- 부트스트랩에서 아이콘 넣는 방법 : glyphicons, fontawesome 두가지
+  		- fontawesome이 아이콘이 다양하기 때문에 많이 사용함
+  		- 아이콘은 폰트로 만들어져 있으므로 색이나 크기 변경가능
+  		- glyphicons 아이콘 사용
+	
+        -->
+
+    <div class="container">
+        <div class="row">
+            <ul>
+                <li>
+                    <!-- glyphicon -->
+                    <button type="button" class="btn btn-default btn-lg">
+						<span class="glyphicon glyphicon-star" style="color:blue; font-size:30px;"></span>Sart
+					</button>
+                </li>
+            </ul>
+        </div>
+        <hr>
+        <div class="row">
+            <ul>
+                <li>
+                    <!-- fontawesome -->
+                    <button type="button" class="btn btn-default btn-lg">
+						<span class="fa fa-star" style="color:blue; font-size:30px;"></span>Sart
+					</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

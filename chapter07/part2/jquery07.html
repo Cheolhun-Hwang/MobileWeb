@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery Event</title>
+		<script src="./js/jquery-3.2.1.min.js"></script>
+		<script>
+				$(document).ready(function () {
+				  	$('#site').change(function(e){ 
+						$('p').text($(this).val()); 
+			  	 });
+			});
+		</script>
+	</head>
+	<body>
+		<div>
+			<select id="site">
+				<option value=''>선택</option>
+				<option value='www.naver.com'>네이버</option>
+				<option value='www.google.com'>구글</option>
+				<option value='www.daum.net'>다음</option>								
+			</select>
+		</div>
+
+		<h3> select-url </h3>
+		<p></p>
+
+	</body>
+</html>
+

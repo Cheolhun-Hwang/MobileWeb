@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery Event</title>
+		<script src="./js/jquery-3.2.1.min.js"></script>
+		<style>
+		    div#outer { border:solid 1px black; background-color: yellow;
+		        width:600px; height:400px; padding: 10px 10px 10px 10px;
+			    position:absolute; top: 100px; left:50px; }
+		    div#inner { border:solid 1px black; background-color: orange;
+	        	width:100px; height:100px; position:relative; top:100px; left:50px; }
+		</style>
+		<script>
+			$(document).ready(function () {
+				$("#inner").on("click", function(e) {
+					console.log("div#inner click!!");
+					console.dir(e);
+				});
+				$("#outer").on("click", function(e) {
+					console.log("div#outer click!!");
+					console.dir(e);
+				});
+				$(document).on("click", function(e) {
+					console.log("document click");
+					console.dir(e);
+				});
+			});
+		</script>
+	</head>
+	<body>
+	<div id="outer">
+		<div id="inner"></div>
+	</div>
+	</body>
+</html>
+
+

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery Event</title>
+		<script src="./js/jquery-3.2.1.min.js"></script>
+		<style>
+			#wrap { margin-left:300px; }
+			#nav > input { margin-left:300px; }
+			.box { width:150px; height:150px; border:2px solid blue;}
+			.box.over { background-color: red; }
+			.box.out { background-color: green; }
+			.box.click { background-color: blue; }
+			.box > p { padding:30px; color:white; }
+			#nav { margin:20px; }
+		</style>
+		<script>
+				$(document).ready(function () {
+						var $box = $('.box');//id="box"요소를 선택자로 선택
+										
+						//on()메소드를 이용하여 동적으로 생성된 요소에도 이벤트가 발생하도록 등록 - 이벤트 위임
+						
+						//$("상위요소(부모)명").on({ 리터럴객체(이벤트종류, 이벤트핸들러), "선택요소(자식)명});
+						$("#wrap").on({//on()메소드로 이벤트를 등록(첫번째 인자로 러터럴객체를 넘겨줌)
+							mouseover:function(){
+								var $tg = $(this);//현재 선택한요소
+								$tg.removeClass().addClass('box over');
+								$tg.find('> p').text('mouseover');//현재 선택한요소에서 p태그를 찾아 text 삽입
+							},
+							mouseout:function(){
+								var $tg = $(this);//현재 선택한요소
+								$tg.removeClass().addClass('box out');
+								$tg.find('> p').text('mouseout');
+							},
+							click:function(){
+								var $tg = $(this);//현재 선택한요소
+								$tg.removeClass().addClass('box click');
+								$tg.find('> p').text('click');
+							}
+						}, ".box");//on()메소드의 두 번째 인자값으로 "선택요소(자식)명"인 '.box'를 넘겨줌
+					
+						$('#nav > :input').on('click', function(){
+					    //clone()메소드를 사용해 box를 복제해서 wrap에 추가
+						$('#wrap').append($box.eq(0).clone());
+					});
+				});
+		</script>
+	</head>
+	<body>
+		<div id="nav">
+			<input type="button" value="box추가" />
+		</div>
+
+		<div id="wrap">
+			<div class="box  out">
+				<p> eventType </p>	
+			</div>
+		</div>
+
+	</body>
+</html>
+

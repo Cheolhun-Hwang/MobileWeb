@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Bootstrap, Components </title>
+
+    <!-- Bootstrap css -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/kfonts2.css" rel="stylesheet">
+    <!-- Fontawesome css -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="js/bootstrap.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and Media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div class="container">
+
+        <h1> 모달 사이즈 조절 </h1>
+        <hr>
+        <!-- Button trigger modal -->
+        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#bs-example-modal-lg">여기를 클릭하시면 큰 모달  </button>
+
+        <hr>
+
+        <a href="#bs-example-modal-sm" data-toggle="modal">여기를 클릭하시면 작은 모달 </a>
+
+        <!-- 큰 Modal -->
+        <div class="modal fade" id="bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myLargeModalLabel">모달 제목 </h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>여기는 큰 모달 </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 작은 Modal -->
+        <div class="modal fade" id="bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="mySmallModalLabel">모달 제목 </h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>여기는 작은 모달 </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

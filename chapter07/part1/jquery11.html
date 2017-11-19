@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery Basic</title>
+		<script src="./js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript">	
+			$(document).ready(function() {
+				 $("div.subject + div.description").hide();
+			});			
+		</script>
+		<style>
+			    div#course { width:250px; font-size:9pt; }
+			    
+			    div.subject { border:solid 1px black;
+			        text-align: center; padding:2px 2px 2px 2px; 
+			        margin-bottom: 2px; background-color: purple;
+			        color:yellow; font-weight: bold; cursor:pointer; }
+			        
+			    div.description { border:solid 1px #DDDDDD;
+			        padding:5px 5px 5px 5px; height:100px; }
+		</style>
+	</head>
+	<body>
+			<div id="content" >
+					<h2>과목 안내</h2>
+					<div id="course">
+						<div class="subject">모바일프로그래밍</div>
+						<div class="description">모바일프로그래밍은.......</div>
+						<div class="subject">인공지능</div>
+						<div class="description">인공지능은 .......</div>
+						<div class="subject">가상현실</div>
+						<div class="description">가상현실은.........</div>
+						<div class="subject">빅데이터분석</div>
+						<div class="description">빅데이터는 ..........</div>
+				    </div>				    
+			</div>
+	</body>
+</html>
+
+

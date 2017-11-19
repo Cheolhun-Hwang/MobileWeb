@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Bootstrap, Components </title>
+
+    <!-- Bootstrap css -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/kfonts2.css" rel="stylesheet">
+    <!-- Fontawesome css -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="js/bootstrap.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and Media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->>
+</head>
+
+<body>
+    <div class="container">
+        <h1> 모달 자동 오픈 </h1>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h3 class="modal-title" id="myModalLabel">모달 제목 </h3>
+                    </div>
+                    <div class="modal-body">
+                        <p>여기는 내용이 들어 가는 곳 </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+                        <button type="button" class="btn btn-primary">변경 사항 저장</button>
+                    </div>
+                </div>
+                <!-- 모달 콘텐츠 -->
+            </div>
+            <!-- 모달 다이얼로그 -->
+        </div>
+        <!-- 모달 전체 윈도우 -->
+    </div>
+
+    <script>
+        //페이지가 로딩되면서 모달이 구동됨
+        $('#myModal').modal({
+            //키보드의 Esc 키를 눌러도 모달이 닫히지 않도록 옵션 설정
+            keyboard: false
+        })
+    </script>
+</body>
+</html>

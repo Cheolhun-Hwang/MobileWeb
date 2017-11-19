@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery Event</title>
+		<script src="./js/jquery-3.2.1.min.js"></script>
+		<script>
+
+          $(document).ready(function(){
+			  $("#btn1").click(()=>{
+				  var $txt = $(this).text();
+				  $("p").text($txt).css({"color":"white", "background-color":"blue"});
+			  });
+
+			  $("#btn2").dblclick(()=>{
+				  var $txt = $(this).text();
+				  $("p").text($txt).css({"color":"white", "background-color":"red"});
+			  });
+			});
+
+		</script>
+	</head>
+	<body>
+			<button id="btn1">Click</button> 
+			<button id="btn2">Double Click</button>
+
+			<p>내용</p>
+	</body>
+</html>
+

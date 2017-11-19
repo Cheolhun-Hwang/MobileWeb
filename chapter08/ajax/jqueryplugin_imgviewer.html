@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>다음 카카오 이미지 검색 API를 이용한 이미지 뷰어</title>
+		<link rel="stylesheet" href="./css/bootstrap.min.css">
+		<link rel="stylesheet" href="./css/ekko-lightbox.min.css">
+		<style>
+			body { padding-top: 70px; } 
+			.portfolio-item { margin-bottom: 25px;  }
+			footer { margin: 50px 0; }
+		</style>
+		<script src="./js/jquery-3.2.1.min.js"></script>
+		<script src="./js/bootstrap.min.js"></script>
+		<script src="./js/ekko-lightbox.min.js"></script>
+		<script src="./js/jsrender.min.js"></script>
+		
+		<script type="text/javascript">
+			$(document).ready(function() {
+				/* 요청 URL 포맷
+				 * https://apis.daum.net/search/image?apikey={apikey}&q=검색어&output=json
+				 */
+				// JSONP 요청을 위한 문자열 지정
+				var url = "https://apis.daum.net/search/image?callback=?";
+
+				// getJSON()으로 요청을 위한 파라미터(param) 객체 생성 
+				var param = { 
+					pageno:1, result:20, output:"json", sort : "accu",
+					apikey : "d307e80495ec3495344edc086e532d1a"
+				};
+				
+				//이미지 검색용 함수: JSONP 기법 이용
+				var searchImages= function() {
+					$.getJSON(url, param, function(data) {// getJSON()으로 이미지 검색
+						var tmpl = $.templates("#image_template");
+						console.log(data.channel.item);
+						//jsRender 템플릿에 데이터 랜더링
+						var str = tmpl.render(data.channel.item);
+						console.log(str);
+						// 검색 이미지 출력
+						$("#imagelist").append(str);
+					}); 
+					/*
+					$.ajax({
+			    		url : url,
+			    		dataType : "jsonp",
+						type : "GET",
+						data : param,
+						jsonp :  "callback",
+			    		success : function(data) {
+						    		console.log(data);
+						    		var tmpl = $.templates("#image_template");
+									var str =  tmpl.render(data.channel.item);
+									$("#imagelist").append(str);			    		
+			    		}
+			    	}); */
+				};
+				
+				//다음 20개 가져오기를 클릭했을 때의 이벤트 처리
+				$("#getNext").on("click", function() {
+					param.pageno++;//페이지 번호 증가
+					searchImages();//이미지 검색 함수 호출
+				});
+				
+				//'검색' 버튼을 클릭했을 때의 이벤트 처리
+				$("#inquery").on("click", function() {
+					$("#imagelist").empty();
+					param.pageno = 1;
+					//param 객체에 사용자가 입력한 검색 키워드를 q 속성으로 추가(q=검색어)
+					param.q = $("#keyword").val();
+					searchImages();//이미지 검색 함수 호출
+				});
+				
+				//검색어 입력을 위한 텍스트박스에서 엔터키를 눌렀을 때도 검색이 가능하도록 함.
+				$("#keyword").on("keyup", function(e) {
+					if (e.keyCode == 13) {
+						$("#inquery").trigger("click");
+					}
+				});
+				
+				//이벤트 위임 처리를 통해 검색된 썸네일 이미지를 클릭했을 때 라이트박스 화면으로 보여주도록 처리
+				$("#imagelist").delegate("div.portfolio-item  a", "click",  function(e) {
+					e.preventDefault();
+					//썸네일 이미지를 클릭/터치했을 때 라이트박스(Modal)로 보여준다.
+					$(this).ekkoLightbox();
+				});
+			});
+		</script>
+		
+		<!-- 검색된 이미지(썸네일)를 출력하기 위한 jsRender 템플릿 정의 --> 
+		<script id="image_template" type="text/x-jsrender">
+		        <div class="col-md-2 portfolio-item">
+		            <a data-toggle="lightbox" data-gallery="multis" 
+						data-title="{{:title}}" href="{{:image}}">
+		                <img class="img-responsive" src="{{:thumbnail}}" alt="{{:title}}">
+		            </a>
+		        </div>
+		</script>
+	</head>
+	
+	<body>
+		<!-- Navigation Bar -->
+		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		    <div class="container">
+		        <div class="navbar-header">
+		            <button type="button" class="navbar-toggle" data-toggle="collapse" 
+		            	data-target="#bs-example-navbar-collapse-1">
+		                <span class="sr-only">Toggle navigation</span>
+		                <span class="icon-bar"></span>
+		                <span class="icon-bar"></span>
+		                <span class="icon-bar"></span>
+		            </button>
+		            <a class="navbar-brand" href="#">이미지 검색</a>
+		        </div>
+		        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		            <ul class="nav navbar-nav">
+		                <li>
+		                    <a href="https://developers.daum.net/services/apis/search/image">DAUM 이미지 검색 페이지</a>
+		                </li>
+		                <li>
+		                    <a href="https://developers.daum.net/">DAUM Developers Center</a>
+		                </li>
+		                <li>
+		                    <a href="https://en.wikipedia.org/wiki/JSONP">JSONP Wiki</a>
+		                </li>
+		            </ul>
+		        </div>
+		    </div>
+		</nav>
+		
+		<!-- Page Content -->
+		<div class="container">
+		    <div class="row">
+		    	<!-- 검색창 -->
+		        <div id="navbar" class="navbar-collapse navbar-form navbar-left">
+		        	<div class="form-group col-lg-12">
+		        		<input id="keyword" type="text" placeholder="검색어" class="form-control">
+		        		<button id="inquery" class="btn btn-success form-control">검 색</button>
+		        	</div>
+		        </div>
+			</div>
+			
+		    <!-- 검색된 썸네일 이미지 출력 --> 
+		    <div id="imagelist" class="row">
+		
+		    </div>
+		    
+		    <!-- 다음 가져오기 버튼 -->
+		    <footer>
+		        <div class="row">
+			        <div class="navbar-collapse navbar-form navbar-left">
+		    	        <div class="form-group col-lg-12">
+		        	        <button type="submit" id="getNext" class="btn btn-primary">
+		              	      다음 20개 가져오기</button>
+		            	</div>
+		            </div>
+		        </div>
+		    </footer>
+		</div>	
+	</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Test</title>
+		<link href="./css/car2.css" rel="stylesheet" type="text/css">	
+		
+		<script src="./js/jquery-3.2.1.min.js"></script>
+		<script>
+			$(document).ready(function() {
+				/* 여행지 리스트 배열 */
+				var travelData = [
+			        {name : "Maldives", price : "4200000", option1:"500000",  option2:"300000",  option3:"200000" },
+			        {name : "Guam", price : "2000000", option1:"400000",  option2:"200000",  option3:"100000" },
+			        {name : "Bali", price : "2500000", option1:"300000",  option2:"150000",  option3:"100000" },
+			        {name : "Fiji", price : "4000000", option1:"600000",  option2:"700000",  option3:"800000" }
+			   	];
+		
+		       // 여행 가격(price) 변수
+				var $val = $('td[class=val]');
+				var $chkbox = $('input[type=checkbox]');
+				var $price = $('input#total');
+				var price = parseInt($price.val());
+				
+				//여행지 이미지를 클릭하면 주어진 조건을 처리하는 이벤트 처리 함수.
+				//(1) img 태그 중 class 속성이 select 인 요소만 선택자로 지정 
+				$('img[class=select]').on('click', function(){
+					//(2) 선택한 여행지의 인덱스값을 가져와서 변수 i에 저장
+					var i = $(this).index();
+
+					// (3) 여행지 타이틀 설정
+					$('.title').html(travelData[i].name);
+
+
+					//선택한 여행지 이미지 설정					
+					$('img#desti-img').attr('src', $(this).attr('src'));
+					
+					console.log(i, travelData[i].price, travelData[i].option1, travelData[i].option2, travelData[i].option3);
+															
+					//옵션 가격 설정(text, value)
+					$val.each(function(j) {
+						var option = "option" + (j+1);
+						console.log(i, j, travelData[i][option]);
+
+						$(this).text(travelData[i][option]);
+						$($chkbox[j]).val(travelData[i][option]);
+					});  
+					
+                    
+					// checkbox checked 해제
+					/* 체크박스의 checked 속성을 변경할 때는 attr()함수 대신에 prop() 함수사용
+                       - 즉, 태그 속성에 따라 기능이 제어(checked, readonly 등)되는 속성 변경은 prop()함수
+                       - HTML의 일반 속성 변경은 attr() 함수 사용
+                       - $(":checkbox").prop("checked"); ==> true or false
+                       - $(":checkbox").attr("checked"); ==> checked or undefined
+                    */
+					$chkbox.prop("checked", false);	
+				
+				   // 총액(Total Amount) 출력
+					$price.val(total_price[i].price);
+					
+					price = parseInt($price.val());
+				});
+				
+				//여행 옵션 선택시 총액(Total Amount) 계산						
+				$chkbox.on('click', function(){
+					calc();
+				});
+				
+				// 총액(Total Amount) 계산 함수	
+				function calc(){
+					var total_price = price;
+					//check된 체크박스 value 가져오기
+					$('input:checked').each(function(){
+						total_price += parseInt($(this).val());
+					});
+
+
+					// 총액 출력
+					$price.val(total_price);				
+				};
+			});
+		</script>
+	</head>
+	<body>
+	  <div id="wrap">
+	  	<!-- 여행지 타이틀 -->
+		<h1 class="title">Maldives</h1>
+		
+		<!-- 여행지 및 여행 옵션 선택 영역  -->
+		<div id="destination">
+			  <!-- 여행지 이미지 -->
+			  <p><img id="desti-img" src="./img/maldives.png"  /></p>
+			  
+	          <!--옵션 테이블 -->
+			  <table id="option-sel">
+				<colgroup><!-- col을 그룹핑 -->
+					<col width="380px" /><!-- col:각 셀에 공통적인 스타일 적용시 사용 -->
+					<col width="160px" />
+					<col width="*" />
+				</colgroup>
+	
+				<thead><!-- 옵션 테이블 head -->
+					<tr>
+					  <th>Option</th><th>Additional fee</th> <th>Choose</th>
+					</tr>
+				</thead>
+	
+			    <tfoot><!-- 옵션 테이블 foot -->
+				    <tr>
+					  <th>Total Amount</th>
+					  <td colspan="2"><input type="text" name="total" id="total" value="43000" readonly="readonly" /></td>
+				    </tr>
+				</tfoot>
+		
+				<tbody><!-- 옵션 테이블 body -->
+				    <tr>
+					  <td>Option-1</td><td class="val">500000</td><td><input type="checkbox"  value="500000"  /></td>
+				    </tr>
+				    <tr>
+					  <td>Option-2</td><td class="val">300000</td><td><input type="checkbox"  value="300000"  /></td>
+				    </tr>
+				    <tr>
+					  <td>Option-3</td><td class="val">200000</td><td><input type="checkbox"  value="200000" /></td>
+				    </tr>
+			    </tbody>
+			  </table>
+		 </div>
+		 
+		 <div id="destination-sel">
+			<img class="select" src="./img/maldives.png" width="120" height="70"/>
+			<img class="select" src="./img/guam.png" width="120" height="70"/>
+			<img class="select" src="./img/bali.png" width="120" height="70"/>
+			<img class="select" src="./img/fiji.png" width="120" height="70"/>
+		</div>	
+	  </div>
+	</body>
+</html>

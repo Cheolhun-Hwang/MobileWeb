@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery Basic</title>
+		<script src="js/jquery-3.1.1.min.js"></script>
+		<style>
+			html * { margin:0; padding:0; }
+			
+			@media(max-width:800px) {
+					#info { background-color:skyblue;
+					   border:1px solid blue;  }
+			}		
+		</style>
+
+	</head>
+	<body>
+			<div id="content">
+					<div id="info">
+							<spen>info</spen>
+					</div>
+		    </div>
+			
+			<script type="text/javascript">	
+				$(document).ready(function() {
+					var $info = $("#info");
+					window.onresize = function() {
+							$info.html(window.innerWidth);
+					};
+				});
+		</script>		
+	</body>
+</html>
+

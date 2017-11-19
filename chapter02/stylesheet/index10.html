@@ -1,0 +1,51 @@
+<!DOCTYPE html >
+<html>
+<head> 
+	<meta charset="UTF-8" />
+	<title> attribute selector(속성 선택자) </title>	
+	<style>
+	    ul li{ list-style:none;  
+	     	   font-size:16px; margin-top :10px  }
+	     	   
+		ul li label{ float:left; width:80px;
+					 line-height:25px;	}
+		
+		input[type="text"] { /* type="text"인 input 요소 */
+			width:150px;              /* 너비 150px */
+			background-color:skyblue; /* 배경색 하늘색 */
+			border:1px solid #000;    /* 1px짜리 검은색 실선 */
+		} 
+  	</style>
+</head>
+
+<body>
+	<section id="container">
+	<h1>예약하기</h1>
+	<form name="form1" id="form1" method="post" action="">
+    	<fieldset>
+		        <legend>예약자 정보</legend>
+        	<ul>
+            	<li>
+                	<label for="name">예약자</label>
+                    <input type="text" name="name" id="name">
+                </li>
+                <li>
+                	<label for="contact">연락처</label>
+                    <input type="tel" name="contact">
+               </li>                
+                <li>
+                	<label for="people">예약 인원</label>
+                    <input type="number" name="people">
+               </li>				   
+                <li>
+                	<label for="bank">입금 은행</label>
+                    <input type="text" name="bank">
+               </li>				   
+            </ul>  
+		</fieldset>        
+      </form>
+ 	</section>
+</body>
+</html>
+
+

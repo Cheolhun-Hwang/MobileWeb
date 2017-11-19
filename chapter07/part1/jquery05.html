@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery Basic</title>
+		<script src="js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript">	
+			$(document).ready(function() {
+                    // id에 스타일 지정
+				    $("#tit").css("background-color","yellow")
+                             .css("border", "2px solid red"); 
+                    //체이닝 기법 : 하나의 요소에 여러 개의 메서드 선언
+			});
+		</script>
+	</head>
+	<body>
+	       <h1>제이쿼리</h1>
+		   <h2 id="tit">직접 선택자및 관계 선택자</h2>
+		   <h3>직접 선택자</h3>
+		   <h3>관계 선택자</h3>
+	</body>
+</html>

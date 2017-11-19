@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery Event</title>
+		<script src="./js/jquery-3.2.1.min.js"></script>
+		<script>
+				$(document).ready(function () {
+					function calcHandler(e) {//매개변수로 전달된 데이터는 이벤트객체 타입
+						var x = parseInt($("#x").val());
+						var y = parseInt($("#y").val());
+						var result = 0;
+						//전달된 이벤트 객체는 이벤트핸들러 함수에서 객체의 data 속성으로 사용
+						if (e.data == "+") {
+							result = x+y;	
+						} else if (e.data == "*") {
+							result = x*y;
+						} else {
+							throw new Error("처리 불가능한 형식!!");
+						}
+						
+						$("#result").html(result);
+					} 	
+
+					$("#add").click("+", calcHandler);//이벤트핸들러에 데이터('+')전달
+					$("#multiply").click("*", calcHandler); 		
+				});
+		</script>
+	</head>
+	<body>
+		X : <input type="text" id="x" value="5" /><br />
+		Y : <input type="text" id="y" value="3" /><br />
+		<hr/>
+		<button id="add">덧셈</button>
+		<button id="multiply">곱셈</button><br /><br />		
+		처리 결과 : <span id="result">0</span>
+	</body>
+</html>
+

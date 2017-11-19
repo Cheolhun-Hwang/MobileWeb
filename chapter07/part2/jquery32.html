@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery Event</title>
+		<script src="./js/jquery-3.2.1.min.js"></script>
+		<style>
+			img.scape_hidden { display: none; }
+			img.scape_visible { display: block; }
+		</style>
+		<script>
+			$(document).ready(function () {
+				var handle;
+				function viewSlide() {
+					var slider = $("#slider");                    
+					slider.find("img.scape_visible").removeClass("scape_visible");
+                    
+					//첫번째 이미지를 마지막에 추가함으로써 이미지를 회전시킴
+					slider.find("img:first").appendTo(slider).addClass("scape_visible");
+				}
+				
+                //"Slide Show!"버튼을 클릭하면 2초마다 viewSlide() 함수 호출
+				$("#slideStart").click(function() {
+					handle = setInterval(viewSlide, 2000);
+				});
+                // "Stop Slide Show!"버튼을 클릭하면 setInterval() 해제
+				$("#slideStop").click(function() {
+					clearInterval(handle);
+				});	
+				
+				viewSlide();
+			});
+		</script>
+	</head>
+	<body>
+		<div id="container">
+			<button id="slideStart">Slide Show!</button>
+			<button id="slideStop">Stop Slide Show!</button>
+			<h3>꼭 가보고 싶은 곳 5</h3>
+			<div id="slider">
+				<img class="scape_hidden" src="./img/capetown.jpg" />
+				<img class="scape_hidden" src="./img/chichenitza.jpg" />
+				<img class="scape_hidden" src="./img/machu.jpg" />
+				<img class="scape_hidden" src="./img/niagarafalls.jpg" />
+				<img class="scape_hidden" src="./img/tajmahal.jpg" />
+			</div>
+		</div>
+	</body>
+</html>
+
+

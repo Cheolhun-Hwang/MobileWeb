@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery Event</title>
+		<script src="./js/jquery-3.2.1.min.js"></script>
+		<script>
+				$(document).ready(function () {
+					$("input:disabled").css("border", "dashed 2px gray");
+					
+                    ????
+
+			});
+		</script>
+	</head>
+	<body>
+	    음식 분류 : 
+	    <select id="food">
+			<option value="" selected>-----음식 분류를 선택하세요-----</option>
+			<option value="한식">한식</option>
+			<option value="중식">중식</option>
+			<option value="양식">양식</option>
+			<option value="일식">일식</option>
+			<option value="분식">분식</option>
+		</select>
+		
+		<button id="inquery">조회</button>
+		
+		<hr>
+		선택 결과 : <input type="text" id="result" value="" disabled />
+	</body>
+</html>
+

@@ -1,0 +1,14 @@
+ *{margin:0; padding:0;}
+  body{font:12px/1.5 dotum,"돋움", gulim, "굴림", sans-serif;}
+  li{list-style:none;}
+  table{border-collapse:collapse;border-spacing:0;}
+  
+  h1{text-align:center;}
+  #wrap{width:600px; margin:0 auto;}
+  #estimate{width:100%;}
+  #estimate th, td{border:1px solid #ccc;height:30px;}
+  #estimate th{background-color:#333;color:#fff;}
+  #carZone td{text-align:center;}
+  tfoot{font-size:15px; font-weight:bold;}
+  #total{border:none 0;background:none;
+  font-size:1.5em;font-weight:bold;text-align:center;}

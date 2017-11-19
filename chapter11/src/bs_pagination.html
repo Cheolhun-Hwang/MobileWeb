@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Bootstrap, Components </title>
+
+    <!-- Bootstrap css -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <!-- Fontawesome css -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="js/bootstrap.js"></script>
+    
+     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and Media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <style>
+    	body > div {border: 1px solid gray;}
+    	ul {list-style: none;}
+    </style>
+    <script>
+    	$(document).ready(function() {
+    		$("ul > li > a").click(function(){
+    			$(this).tab("show");
+    		});
+    	});
+    </script>
+  </head>
+  <body>
+ 
+  	<!-- components
+  		 - pagination
+ 
+        -->
+					
+	<div class="container">   
+	   <div class="row">
+			<h3>pagination</h3>
+			<ul class="pagination">
+				<li><a>&laquo;</a></li>
+				<li class="active"><a>1</a></li>
+				<li><a>2</a></li>
+				<li><a>3</a></li>
+				<li><a>4</a></li>
+				<li><a>5</a></li>
+				<li><a>&raquo;</a></li>
+			</ul>		
+	   </div>
+	   <hr>
+	   <div class="row">
+			<h3>pagination 크기(lg)</h3>
+			<ul class="pagination pagination-lg">
+				<li><a>&laquo;</a></li>
+				<li class="active"><a>1</a></li>
+				<li><a>2</a></li>
+				<li><a>3</a></li>
+				<li><a>4</a></li>
+				<li><a>5</a></li>
+				<li><a>&raquo;</a></li>
+			</ul>		
+	   </div>
+	   <hr>
+	   <div class="row">
+			<h3>pagination 크기(sm)</h3>
+			<ul class="pagination pagination-sm">
+				<li><a>&laquo;</a></li>
+				<li class="active"><a>1</a></li>
+				<li><a>2</a></li>
+				<li><a>3</a></li>
+				<li><a>4</a></li>
+				<li><a>5</a></li>
+				<li><a>&raquo;</a></li>
+			</ul>		
+	   </div>   
+	</div>
+  </body>
+</html>

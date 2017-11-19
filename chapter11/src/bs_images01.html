@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Bootstrap, Button </title>
+
+    <!-- Bootstrap css -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <!-- Custom css -->
+    <link href="css/custom.css" rel="stylesheet">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="js/bootstrap.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and Media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <style>
+        body>div {
+            border: 1px solid gray;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- image 태그
+  		- 빈 이미지 표현
+		- img-rounded, img-circle, img-thumbnail
+          <img src="http://placehold.it/800x400png">
+        -->
+
+    <div class="container">
+        <h4 class="text-primary"> 이미지 </h4>
+        <div class="col-sm-6">
+            <h5>기본 이미지 </h5>
+            <img src="img/rose.jpg" alt="장미">
+        </div>
+        <div class="col-sm-6">
+            <h5>둥근 테두리 class="img-rounded" </h5>
+            <img src="img/rose.jpg" alt="장미" class="img-rounded">
+        </div>
+        <div class="col-sm-6">
+            <h5>원형이미지 class="img-circle" </h5>
+            <img src="img/rose.jpg" alt="장미" class="img-circle">
+        </div>
+        <div class="col-sm-6">
+            <h5> 썸네일 이미지 class="img-thumbnail"</h5>
+            <img src="img/rose.jpg" alt="장미" class="img-thumbnail">
+        </div>
+
+        <!-- 반응형 이미지 -->
+        <h4 class="text-primary"> 반응형 이미지 </h4>
+        <div class="col-sm-6">
+            <h5>기본 이미지 </h5>
+            <img src="img/puppy.jpg" alt="개양귀비">
+        </div>
+        <div class="col-sm-6">
+            <h5>둥근 테두리 class="img-rounded" </h5>
+            <img src="img/puppy.jpg" alt="개양귀비" class="img-rounded img-responsive">
+        </div>
+        <div class="col-sm-6">
+            <h5>원형이미지 class="img-circle" </h5>
+            <img src="img/puppy.jpg" alt="개양귀비" class="img-circle img-responsive">
+        </div>
+        <div class="col-sm-6">
+            <h5> 썸네일 이미지 class="img-thumbnail"</h5>
+            <img src="img/puppy.jpg" alt="개양귀비" class="img-thumbnail img-responsive">
+        </div>
+
+    </div>
+</body>
+</html>

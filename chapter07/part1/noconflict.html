@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script>
+        // 플러그인간의 충돌을 제거합니다.
+        $.noConflict();//$기호 사용권 포기 선언
+        
+        var J = jQuery;
+        
+        // jQuery를 사용합니다.
+        J(document).ready(function () {
+            J('h1').removeClass('high-light');
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>

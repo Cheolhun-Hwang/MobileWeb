@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+
+    <title>모바일 웹 과제 1 [황철훈]</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+    <!-- # : id . : class -->
+
+    <style>
+      body{
+        padding: 0em;
+        margin: 0em;
+      }
+      input{
+        size : 5em;
+        width: 30em;
+      }
+      .mainThemaColor{
+        background: #FF6A89;
+      }
+      .subThemaColor{
+        background: #FFC0CB;
+      }
+      .banners{
+        margin: 1em;
+        outline: #000000 solid;
+      }
+      .banners_top{
+        height: 4em;
+      }
+      .banners_bot{
+        height: 3.5em;
+      }
+      .banners_sub_top{
+        height: 4.5em;
+      }
+      .banners_sub_bot{
+        height: 4.3em;
+      }
+      #body_layout{
+        padding-top: 1em;
+        padding-left: 6em;
+        padding-right: 6em;
+        padding-bottom: 0em;
+      }
+      #body_foot_layout{
+        clear: both;
+        text-align: center;
+      }
+      #body_top_layout{
+       display: flex;
+      }
+      #body_top_logo_layout{
+        flex:1;
+      }
+      #body_top_input_layout{
+        flex:4;
+        padding: 1em;
+      }
+      #body_top_menu_layout{
+        flex:2;
+        margin: auto;
+      }
+      #top_layout{
+        height: 5em;
+        display: flex;
+      }
+      #top_menu_list_layout{
+        flex: 9;
+      }
+      #top_menu_list{
+        list-style: none;
+        align-content: center;
+        padding: 1em;
+      }
+      #top_menu_list li{
+        display: inline;
+        margin: 0.8em;
+        font-size: 1.2em;
+        color: #ffffff;
+      }
+      #body_top_logo_layout{
+        text-align: center;
+        padding: 1em;
+      }
+      #top_nav_btn_layout{
+        padding: 2em;
+        flex: 1;
+        text-align: center;
+      }
+      #body_top_menu_list{
+        list-style: none;
+        padding: 0em;
+        margin: 0dp;
+        float: right;
+      }
+      #body_top_menu_list li{
+        display: inline;
+        margin: 0.2em;
+        font-size: 0.9em;
+      }
+      #body_nav_list{
+        list-style: none;
+        padding: 0.3em;
+        margin: 1em;
+      }
+      #body_nav_list li{
+        font-size: 1.1em;
+        margin: 0.5em;
+        text-align: center
+      }
+      #body_container_mainBanner_nav_layout{
+        text-align: center;
+        margin: 1em;
+      }
+      #body_container_mainBanner_nav_list{
+        list-style: none;
+        padding: 0em;
+      }
+      #body_container_mainBanner_nav_list li{
+        display: inline;
+        margin: 0.2em;
+        padding: 1em;
+        font-size: 0.9em;
+        color: #ffffff;
+      }
+      #wrapper{
+        display: flex;
+      }
+      #body_nav_layout{
+        flex :1.5;
+      }
+      #body_container_layout{
+        flex :8.5;
+        display: flex;
+      }
+      #body_container_mainBanner_layout{
+        flex: 6;
+        margin: auto;
+      }
+      #body_container_mainBanner_nav_list{
+        margin: auto;
+      }
+      #body_container_mainBanner_top_big_layout{
+        height: 5em;
+      }
+      #body_container_sideBanner_layout{
+        flex: 4;
+        margin: auto;
+      }
+      #body_foot_layout{
+         height: 3em;
+         color: #ffffff;
+         clear: both;
+         padding: 1em;
+      }
+    </style>
+
+  </head>
+
+  <body>
+
+    <section id="container">
+      
+      <section id="top_layout" class="mainThemaColor">
+        <div id="top_menu_list_layout">
+          <ul id="top_menu_list">
+            <li>Home</li>
+            <li>Mail</li>
+            <li>Ficker</li>
+            <li>Tumbir</li>
+            <li>Answers</li>
+            <li>Groups</li>
+            <li>Games</li>
+            <li>Movies</li>
+            <li>More</li>
+          </ul>
+        </div>
+
+        <div id="top_nav_btn_layout">
+          <a href=""><img src="img/navigation-512.png" width="24px" height="24px"></a>
+        </div>
+      </section>
+
+      <section id="body_layout">
+
+        <div id="body_top_layout">
+          <div id="body_top_logo_layout">
+              <a href="projectOne.HTML">MyBlog</a>
+          </div>
+          <div id="body_top_input_layout">
+            <input type="text">
+            <button id="body_top_search_BTN" onclick="" >검색</button>
+          </div>
+          <div id="body_top_menu_layout">
+            <ul id="body_top_menu_list">
+              <li>My Page</li>
+              <li>Sign In</li>
+              <li>Mail</li>
+            </ul>
+          </div>
+        </div>
+
+        <div id="wrapper">
+            <aside id="body_nav_layout">
+                <div id="body_nav_list_layout">
+                  <ul id="body_nav_list">
+                    <li>Mail</li>
+                    <li>News</li>
+                    <li>Sports</li>
+                    <li>Finance</li>
+                    <li>Celebrity</li>
+                    <li>Shopping</li>
+                    <li>Movies</li>
+                    <li>Politics</li>
+                    <li>Health</li>
+                    <li>Style</li>
+                    <li>Beauty</li>
+                    <li>Tech</li>
+                    <li>Travel</li>
+                    <li>TV</li>
+                  </ul>
+                </div>
+              </aside>
+              
+              <div id="body_container_layout">
+                <div id="body_container_mainBanner_layout">
+                    <div id="body_container_mainBanner_top_layout">
+                        <div id="body_container_mainBanner_top_big_layout" class="banners banners_top">main big banner</div>
+                        <div id="body_container_mainBanner_top_sub_layout" class="banners banners_top">main sub banner</div>
+                    </div>
+                    <div id="body_container_mainBanner_nav_layout" class="subThemaColor">
+                      <ul id="body_container_mainBanner_nav_list">
+                        <li>All Stories</li>
+                        <li>News</li>
+                        <li>Entertainment</li>
+                        <li>Sports</li>
+                        <li>Business</li>
+                        <li>More</li>
+                      </ul>
+                    </div>
+                    <div id="body_container_mainBanner_topic_layout">
+                      <div id="body_container_mainBanner_topic_one_layout" class="banners banners_bot">main topic-1</div>
+                      <div id="body_container_mainBanner_topic_two_layout" class="banners banners_bot">main topic-2</div>
+                      <div id="body_container_mainBanner_topic_three_layout" class="banners banners_bot">main topic-3</div>
+                    </div>
+                </div>
+                
+                <div id="body_container_sideBanner_layout">
+                    <div id="body_container_sideBanner_big_layout" class="banners banners_sub_top">Side big banner</div>
+                    <div id="body_container_sideBanner_sub_one_layout" class="banners banners_sub_bot">Side sub banner-1</div>
+                    <div id="body_container_sideBanner_sub_two_layout" class="banners banners_sub_bot">Side sub banner-2</div>
+                    <div id="body_container_sideBanner_sub_three_layout" class="banners banners_sub_bot">Side sub banner-3</div>
+                    <div id="body_container_sideBanner_sub_four_layout" class="banners banners_sub_bot">Side sub banner-4</div>
+                </div>
+              </div>
+        </div>
+      </section>
+
+      <div id="body_foot_layout"  class="mainThemaColor">
+          <h5>Copyright &copy; All Rights Reserved</h5>
+      </div>
+    </section>
+
+
+
+  </body>
+</html>

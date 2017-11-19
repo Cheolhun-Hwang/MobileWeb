@@ -1,0 +1,15 @@
+@charset "utf-8";
+/*  Reset CSS  */
+* { margin:0;  padding:0;}
+ol,ul { list-style: none; }
+a { outline:0; text-decoration:none; color:#555; }
+img { border:0;}
+ 
+ 
+body { font-family:Arial; background:#808080; }
+			
+h1 { font-size:5em; color:white; }
+			
+.shadow1 { text-shadow:1px 1px 3px #000; }
+		
+.shadow2 { color:black; text-shadow:3px -3px 5px #fff;  }

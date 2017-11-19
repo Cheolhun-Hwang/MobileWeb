@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery Basic</title>
+		<script src="./js/jquery-3.2.1.min.js"></script>
+		<style>
+		    li {font-size:1.2em; margin-bottom: 10px;}
+	        .high-light-0 { background: yellow; }
+	        .high-light-1 { background: orange; }
+	        .high-light-2 { background: blue; }
+	        .high-light-3 { background: green; }
+	        .high-light-4 { background: red; }
+		</style>
+		<script type="text/javascript">	
+			$(document).ready(function() {
+   				//addClass()를 사용하여 클래스 직접 추가
+	            $('li').addClass(function (index) {
+                	return 'high-light-' + index;
+            	});
+        	});	
+		</script>		
+	</head>
+	<body>
+		<div id="content">
+			<ul>
+				<li>내용1</li>
+				<li>내용2</li>
+				<li>내용3</li>
+				<li>내용4</li>
+				<li>내용5</li>
+			</ul>
+		</div>
+	</body>
+</html>

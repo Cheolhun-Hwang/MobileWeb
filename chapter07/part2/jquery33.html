@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery Event</title>
+		<script src="./js/jquery-3.2.1.min.js"></script>
+		<style>
+			#addForm { width:650px; }
+			th  { background-color:purple; color:yellow; }
+			.pkey { width:250px; }
+			.pname  { width:150px; }
+			.ptel  { width:150px; }
+			.pdel  { width:100px; }
+		</style>
+		<script>
+		    //랜덤 UUID값을 생성
+			function generateUUID() {
+			    var d = new Date().getTime();
+			    var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+			        var r = (d + Math.random()*16)%16 | 0;
+			        d = Math.floor(d/16);
+			        return (c=='x' ? r : (r&0x3|0x8)).toString(16);
+			    });
+			    return uuid;
+			};
+			
+			$(document).ready(function () {
+				//삭제버튼을 클릭하면 "삭제"버튼을 포함하고 있는 <tr>(부모요소)을 삭제
+				$("#temprow input.pdel").click(function(){
+                    $(this).parents("tr").remove();
+                });
+                
+				//"행추가"버튼을 클릭하면
+				$("#add").click(function() {
+					//generateUUID() 메서드를 호출하여 랜덤한 UUID값을 생성하여 KEY값으로 부여
+					var uuid= generateUUID();
+					//clone(true): 선택한요소("#temprow")를 복사(true:이벤트정보까지 복사)하여 "#rowbody"의 마지막에 추가
+                    $("#temprow").clone(true).removeAttr("id").find("input:first").val(uuid).end().appendTo("#rowbody");    
+					//end() : chain을 종료하고 선택집합의 이전 요소를 스택에서 찾아 반환(#temprow)
+				});
+				
+				//저장버튼을 클릭하면 각 입력필드의 값을 배열로 모아서 한번에 처리
+				$("#save").click(function() {
+					var save_data = [];
+					//"#addform" 모든 <tr> 후손중에서 0보다 큰 <tr>을 선택하여 each()문으로 반복처리
+	                $("#addform tr:gt(0)").each(function(i, item) {
+                        var key = $(item).find("input.pkey").val();
+                        var name = $(item).find("input.pname").val();
+                        var tel = $(item).find("input.ptel").val();
+                        
+                        save_data.push({key:key, name:name, tel:tel});
+                    });
+
+					
+					//저장할 데이터 구조의 확인을 위해 콘솔로 출력
+					console.log("저장할 데이터 : ");
+					console.log(JSON.stringify(save_data));//객체 또는 배열을 인자로 받아서 JSON 문자열로 변환 
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div id="container">
+			<h2>동적으로 행 추가</h2>
+			<button id="add" class="pno"> 행 추가 </button>
+			<div id="layout1">
+				<table id="addform">
+					<thead>
+						<tr>
+							<th class="pkey">식별번호</th>
+							<th class="pname">이름</th>
+							<th class="ptel">전화번호</th>
+							<th class="pdel">삭제버튼</th>
+						</tr>
+					</thead>
+					<tbody id="rowbody">
+			
+					</tbody>
+				</table>
+				<br />
+				<button id="save">저장</button>
+			</div>
+			
+			<table id="temptable" style="display:none">
+				<tr id="temprow">
+					<td><input type="text" class="pkey" name="key" disabled /></td>
+					<td><input type="text" class="pname" name="name" /></td>
+					<td><input type="text" class="ptel" name="tel" /></td>
+					<td><input type="button" class="pdel" value="삭제" /></td>
+				</tr>
+			</table>
+		</div>
+	</body>
+</html>
+
+

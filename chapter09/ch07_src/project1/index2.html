@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact us</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            color: #333;
+        }
+        
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+        
+        header {
+            width: 960px;
+            height: 80px;
+            overflow: hidden;
+            margin: 0px auto;
+        }
+        
+        header>h1 {
+            float: left;
+            margin-top: 20px;
+        }
+        
+        header>nav {
+            float: right;
+            margin-top: 45px;
+        }
+        
+        header nav a {
+            display: inline-block;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        
+        main {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        main figure.banner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 960px;
+            height: 180px;
+            margin: 0 auto;
+            background: #69f;
+            margin-bottom: 20px;
+        }
+        
+        main figure.banner>.figure_header {
+            width: 600px;
+            text-align: center;
+            color: white;
+        }
+        
+        main figure.banner>.figure_header>h2 {
+            font-size: 2.5em;
+        }
+        
+        main>section {
+            width: 960px;
+            margin: 0 auto;
+        }
+        
+        main>section>article {
+            width: 66%;
+            overflow: hidden;
+            float: left;
+        }
+        
+        main>section>article>#map {
+            width: 100%;
+            height: 500px;
+            background-color: #ccc;
+        }
+        
+        main>section>article p {
+            margin-bottom: 20px;
+        }
+        
+        main>section>aside {
+            float: right;
+            width: 34%;
+            box-sizing: border-box;
+            padding: 20px;
+            padding-top: 0;
+        }
+        
+        fieldset {
+            width: 100%;
+            padding: 10px;
+            border: none;
+        }
+        
+        legend {
+            font-size: 1.6em;
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+        }
+        
+        input,
+        textarea {
+            border: none;
+            background: #ddd;
+            padding: 10px;
+            resize: none;
+        }
+        
+        label,
+        input,
+        textarea {
+            width: 90%;
+            margin-bottom: 10px;
+        }
+        
+        button {
+            background: #fe6081;
+            color: white;
+            border: none;
+            padding: 10px 40px;
+        }
+        
+        button:hover {
+            background: #ff80ab;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>CONTACT</h1>
+        <nav>
+            <span><a href="#">Home</a></span>
+            <span><a href="#">About</a></span>
+            <span><a href="#">Contact Us</a></span>
+        </nav>
+    </header>
+    <main>
+        <figure class="banner">
+            <div class="figure_header">
+                <h2>Contact Us</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur.</p>
+            </div>
+        </figure>
+        <section>
+            <article>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi dolorem quisomnis nam quas sint assumenda id adipisci veritatis totam.</p>
+
+                <div id="map">
+                    <br>&nbsp;지도가 표시될 영역
+                </div>
+
+            </article>
+
+            <aside>
+                <form action="">
+                    <fieldset>
+                        <legend>Send us Email</legend>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="text" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="msg">Message</label>
+                            <textarea name="msg" id="msg" cols="30" rows="8"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button>SEND</button>
+                        </div>
+                    </fieldset>
+                </form>
+            </aside>
+        </section>
+    </main>
+
+    <script>
+        function initMap() {
+
+            /*  맵 객체를 생성하고,
+                - params 1: 지도가 표시될 DOM 요소(id=‘map’에 지도 표시)
+                - params 2: 지도 중앙에 표시될 위도, 경도값(표시하려는 지도의 위치 설정)
+                - params 3: 마우스 휠 기능 설정
+                - params 4: 지도의 확대/축소 스케일 설정
+            */
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: {
+                    lat: 37.575, lng: 126.979
+                },
+                scrollwheel: false,
+                zoom: 17
+            });
+
+            // 지도에 정보를 표시하기 위해 정보창 객체 맵 객체에 추가
+            var infoWindow = new google.maps.InfoWindow({
+                map: map
+            });
+
+            /* HTML5 위치 정보 요청
+               - 사용자 디바이스에서 HTML5 Geolocation API로 현재 위치를 요청할 수 있음
+               - 요청한 위치 정보를 기반으로 구글맵 Javascript API를 통해 현재 위치의 지도롤 표시
+               - 행당 디바이스에 GPS가 켜져 있어야 위치를 확인할 수 있으며,
+               - PC의 경우 GPS 센서가 없으므로 IP기반으로 정보를 가져올 수 있음
+            */
+            //브라우저에서 지오로케이션 객체를 지원하면 true를 반환
+            if (navigator.geolocation) {
+                // 지오로케이션 사용 가능한 경우 getCurrentPosition() 메서드를 통해 현재 위치정보를 가져옴
+                navigator.geolocation.getCurrentPosition(function(position) {
+                        var pos = {
+                            lat: position.coords.latitude,
+                            //lat: 37.450898,
+                            lng: position.coords.longitude
+                            //lng: 127.128783
+                        };
+
+                        //정보창의 위치 설정
+                        infoWindow.setPosition(pos);
+                        //정보창에 출력할 내용을 추가
+                        infoWindow.setContent('여기가 현재 위치입니다!');
+                        map.setCenter(pos);
+                    },
+                    function() {
+                        // 연결 실패하면 handleLocationError()를 실행
+                        handleLocationError(true, infoWindow, map.getCenter());
+                    });
+            } else {
+                // 지오로케이션을 지원하지 않으면 handleLocationError()를 실행
+                handleLocationError(false, infoWindow, map.getCenter());
+            }
+
+        } // end initMap();
+
+        // 지오로케이션 오류 처리
+        function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+            infoWindow.setPosition(pos);
+            infoWindow.setContent(browserHasGeolocation ?
+                '오류: 지오로케이션 연결 실패' :
+                '오류: 브라우저에서 지오로케이션을 지원하지 않음');
+        }
+    </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC2VhxLpxxR2QdPZ1obg_Gs-8pJ9PsOuKY&callback=initMap" async defer></script>
+
+</body>
+</html>

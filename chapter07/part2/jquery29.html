@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery Event</title>
+		<script src="./js/jquery-3.2.1.min.js"></script>
+		<style>
+			#wrap { width: 500px; margin: 0 auto;}
+		    #nations > thead > tr { background-color:purple; color:yellow; }
+		    #nations > thead > tr > th { padding :0px 1px 0px 0px; width:150px; }
+		    #nations > tbody > tr > td { border-bottom: solid 1px gray; }
+		   	div#popup { width:150px; font-size:9pt; z-index:999;
+					    border:solid 1px #DDDDDD; position:absolute; display:none;
+					    box-shadow: 0 0 5px #00EE3C;  }
+			div#popup > div { background-color: white; text-align: center;
+						padding:3px 5px 3px 5px; }
+			div#popup > div:hover { background-color: aqua; cursor:pointer; }
+		</style>
+		<script>
+			$(document).ready(function () {
+				/* 국가 리스트 배열 */
+				var nationData = [
+			        { no:1,  name : "대한민국", capital : "서울", region:"asia" },
+			        { no:2,  name : "미국", capital : "워싱턴DC", region:"america" },
+			   		{ no:3,  name : "프랑스", capital : "파리", region:"europe" },
+			   		{ no:4,  name : "영국", capital : "런던", region:"europe" },
+			   		{ no:5,  name : "중국", capital : "베이징", region:"asia" },
+			   		{ no:6,  name : "태국", capital : "방콕", region:"asia" },
+			   		{ no:7,  name : "모로코", capital : "라바트", region:"africa" },
+			   		{ no:8,  name : "라오스", capital : "비엔티안", region:"asia" },
+			   		{ no:9,  name : "베트남", capital : "하노이", region:"asia" },
+			   		{ no:10,  name : "피지", capital : "수바", region:"oceania" },
+			   		{ no:11,  name : "솔로몬 제도", capital : "호니아라", region:"oceania" },
+			   		{ no:12,  name : "자메이카", capital : "킹스턴", region:"america" },
+			   		{ no:13,  name : "나미비아", capital : "빈트후크", region:"africa" },
+			   		{ no:14,  name : "동티모르", capital : "딜리", region:"asia" },
+			   		{ no:15,  name : "멕시코", capital : "멕시코시티", region:"america" },
+			   		{ no:16,  name : "베네수엘라", capital : "카라카스", region:"america" },
+			   		{ no:17,  name : "서사모아", capital : "아피아", region:"oceania" }
+			   	];
+			   	
+			   	/* "#list"에 출력할 HTML 마크업 탬플릿 정의 */
+			   	var template = "<tr><td>${name}</td><td>${capital}</td>" +
+			   		"<td><button class='detail' data-no='${no}'>상세보기</button></td></tr>";
+			
+			   	//국가 배열에서 지역별로 필터링된 데이터(배열)를 만들기 위한 함수
+			   	function filterData(region) {
+			   		//arr.filter(function(배열의 요소값, 배열 요소의 인덱스번호)
+			   		var result = nationData.filter(function(v, index) {//지역별 데이터 추출
+			   			if (v.region == region) {
+			   				return true;
+			   			} 
+			   		});
+			   		return result;//필터링된 배열 리턴
+			   	};
+			   	
+			    /* 이벤트 위임처리- "button.detail"에서 발생한 "click" 이벤트를 "#list"에 위임 
+			     * $('부모요소').on("이벤트명", "이벤트를 발생시키는 자식요소", "이벤트처리함수" */
+	            $("#list").on("click", "button.detail", function(e) {
+                    var cno = $(this).attr("data-no");
+                    console.dir(e);
+                    alert("상세보기 : " + cno);
+                });
+                
+			   	//조회 버튼 클릭시 조건에 맞는 데이터를 가져와 처리  
+			   	$("#inquery").click(function() {
+			   		var arr, str, s;
+			   		// 선택한 지역의 value 값을 sel에 저장
+			   		var sel = $("#region option:selected").val();
+			   		console.log(sel);
+			   		if (sel == "all") {//"전체 정보 보기" 선택한 경우 모든 국가 데이터를 arr에 저장
+			   			arr = nationData;
+			   		} else {//"all" 아니면 선택한 지역의 국가 데이터를 필터링하기 위해 filterData(sel) 함수 호출
+			   			arr = filterData(sel);//필터링된 국가 데이터를 arr에 저장
+			   		}
+			   		
+			   		//필터링된 데이터에서 각 국가의 요소값을 가져와 template의 요소값을 치환  			   		
+			   		$.each(arr, function(index, item) {
+			   			s = template;
+			   			s = s.replace("${no}", item.no);
+			   			s = s.replace("${name}", item.name);
+			   			s = s.replace("${capital}", item.capital);
+			   			str += s;
+			   		});
+                    
+			   		//"조회" 버튼을 클릭할 때마다 "#list" 내용을 비우고, 다시 추가
+                    $("#list").empty();
+                    $("#list").append(str);
+                    
+                    /* 각 국가의 "상세보기" 버튼은 항상 새롭게 만들어지지만 부모요소인 "#list"에
+                       이벤트를 위임했기 때문에 이벤트가 동작함
+                    */
+			   	});
+			   	
+			   	/* ================  사용자 정의 컨텍스트 메뉴 ============================ */
+				var rightClicked;
+				$(document).on("contextmenu",function(e) {
+					//마우스 오른쪽 클릭된 요소 파악
+					rightClicked = e.target;
+					//컨텍스트 메뉴 요소 선택
+					var menu = $("#popup"); 
+					//오른쪽 클릭에 대한 default event 실행 취소
+					e.preventDefault();
+					//마우스 오른쪽 클릭한 좌표에 컨텍스트 메뉴 배치
+					var pageX = e.pageX;
+					var pageY = e.pageY;
+					menu.css({top: pageY , left: pageX});
+					//컨텍스트 메뉴 크기,브라우저 화면 영역(viewport) 파악
+					var mwidth = menu.width();
+					var mheight = menu.height();
+					var screenWidth = $(window).width();
+					var screenHeight = $(window).height();
+					//화면이 스크롤 된 경우를 위해 스크롤한 높이를 파악 
+					var scrTop = $(window).scrollTop();
+					//화면에서 오른쪽 경계선, 아래쪽 경계선 근처에서 클릭했을 때 
+					//컨텍스트 메뉴를 안정적으로 보이도록 좌표를 다시 설정한 후 출력
+					if(pageX+mwidth > screenWidth){
+						menu.css({left:pageX-mwidth});
+					}
+					if(pageY+mheight > screenHeight+scrTop){
+						menu.css({top:pageY-mheight});
+					}	
+					menu.show();
+				}); 
+				
+				//문서에서 클릭이벤트가 발생할 경우 컨텍스트 메뉴 닫음
+				$(document).on("click", function(){
+					$("#popup").hide();
+				});
+				
+				//컨텍스트 메뉴를 클릭하면 커맨드 실행
+				$("#popup > div").click(function(e) {
+					var cmd = $(this).data("cmd");
+					$(this).parent().hide();
+					alert("실행 커맨드 : " + cmd + "\n\n" +
+						"  마우스 오른쪽 클릭된 태그 : " + rightClicked.tagName);
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div id="wrap">
+				지역 선택 : 
+				<select id="region">
+					<option value="all" selected>전체 정보 보기</option>
+					<option value="asia">아시아</option>
+					<option value="america">미주</option>
+					<option value="europe">유럽</option>
+					<option value="oceania">대양주</option>
+					<option value="africa">아프리카</option>
+				</select>
+				<button id="inquery">조회</button>	
+				
+			    <table id="nations">
+			        <thead>
+			            <tr><th>국가명</th><th>수도</th><th>상세보기</th></tr>
+			        </thead>
+			        <tbody id="list">			
+			        </tbody>
+			    </table> 
+			    
+			    <div id="popup">
+					<div data-cmd="cut">Cut</div>
+					<div data-cmd="copy">Copy</div>
+					<div data-cmd="delete">Delete</div>
+					<div data-cmd="paste">Paste</div>
+				</div>			
+		</div>	
+	</body>
+</html>
+
+

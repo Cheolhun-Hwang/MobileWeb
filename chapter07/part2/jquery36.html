@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery Event</title>
+		<script src="./js/jquery-3.2.1.min.js"></script>
+		<style>
+			html * { margin:0; padding:0; }
+			body { margin-top:150px; margin-left:500px; }
+			#wrap { margin-top:20px; }
+			#box { width:300px; height:300px; background-color:red; border:2px solid blue; }
+			input { width:100px; height:50px; }
+		</style>
+		<script>
+			$(document).ready(function () {
+				var $control = $('#control');//id="control" 요소를 control에 저장
+				var $toggleBtn = $control.find('> input');//이벤트를 설정할 요소 선택
+				var $box = $('#box');//id="box" 요소를 box에 저장
+				
+				$toggleBtn.click(function(){//toggleBtn에 이벤트등록
+					$box.toggle(1000);//1초만에 토글 처리
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div id="control"><!-- control button -->
+			<input type="button" value="toggle" />
+		</div>
+		<div id="wrap">
+			<div id="box"></div><!-- 애니메이션 box -->
+		</div>
+	</body>
+</html>
+
+

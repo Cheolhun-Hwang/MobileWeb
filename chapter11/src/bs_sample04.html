@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap, Responsive util</title>
+
+    <!-- Bootstrap css -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="js/bootstrap.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and Media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <style>
+        @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+        header {
+            height: 100px;
+            background-color: rgba(125, 211, 242, 0.5);
+            border-radius: 15px;
+            padding: 10px;
+            margin: 10px 0;
+            font-family: 'Nanum Gothic', sans-serif;
+            text-align: center;
+        }
+        
+        footer {
+            font-family: 'Nanum Gothic', sans-serif;
+            text-align: center;
+        }
+        
+        ul.nav {
+            background-color: rgba(201, 201, 201, .5);
+            padding: 10px;
+            border-radius: 10px;
+        }
+        
+        .banner {
+            background-color: rgba(201, 201, 201, .8);
+            height: 200px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var $info = $("#info");
+            window.onresize = function() {
+                $info.html(window.innerWidth);
+            };
+        });
+    </script>
+</head>
+
+<body>
+    <!-- 부트스트랩에서 그리드로 구성된 레이아웃은 순서가 고정되어 있음
+        - CSS에서 float 속성을 이용해 레이아웃을 변경할 수 있는 것처럼
+          부트스트랩에서는 클래스 선택자(col-md-push-*, col-md-pull-*)를
+          이용해 순서를 변경할 수 있음
+    --> 
+    <div class="container">
+        <header>
+            <h2>그리드 시스템을 이용한 모바일 웹 레이아웃 </h2>
+        </header>
+        <div class="row">
+            <!-- 네비게이션 메뉴 영역 -->            
+            <div class="col-md-2 col-md-push-10">
+                <ul class="nav">
+                    <li><a>menu-1</a></li>
+                    <li><a>menu-2</a></li>
+                    <li><a>menu-3</a></li>
+                    <li><a>menu-4</a></li>
+                </ul>
+
+            </div>
+
+            <!-- 컨텐츠 영역 -->
+            <div class="col-md-10 col-md-pull-2">
+                <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris rutrum vitae lectus sit amet tincidunt. Aliquam id fringilla sapien. Mauris eu nulla at nunc mollis pharetra. Fusce iaculis lectus nec enim feugiat luctus. Nunc tempor orci auctor iaculis consectetur. Cras pellentesque lorem sit amet tempor convallis. Sed ut cursus urna, sed adipiscing elit. Curabitur sit amet adipiscing felis. Duis pellentesque justo quam. Integer lobortis vehicula mauris, at ornare turpis consectetur at. Duis tristique velit tortor, quis viverra dolor venenatis eget.</p>
+
+                <p>Nunc venenatis laoreet ullamcorper. Fusce at orci vulputate, mattis neque vel, euismod ipsum. Proin varius metus neque. In congue, arcu eu posuere gravida, erat sem auctor orci, eu convallis tortor est id sapien. Phasellus gravida quam est, et posuere diam cursus ut. Donec et ipsum laoreet, mattis mauris sit amet, suscipit augue. Etiam vel massa consequat leo pulvinar fermentum a vel urna. Duis malesuada tincidunt tortor id mattis. Sed facilisis massa libero, ut cursus turpis molestie a. Sed ornare, nibh et suscipit semper, sapien lorem auctor nisl, et volutpat lacus quam sit amet mauris.</p>
+
+            </div>
+        </div>
+        
+        <hr>
+        <footer>
+            여기는 푸터가 들어가는 곳입니다.
+        </footer>
+    </div>
+    <!-- ------ width-info ------------ -->
+    <div id="width-info">
+        <div id="info">
+            <spen>info</spen>
+        </div>
+    </div>
+</body>
+</html>

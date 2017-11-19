@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+body	{margin: 0;
+	font-family: '맑은 고딕', 'Apple SD Gothic Neo', sans-serif}
+
+/*    Temporary CSS    */
+header {
+	width:99%;
+	height:100px;
+	border:1px solid blue;
+}
+
+section {
+	width:99%;
+	height:700px;
+	border:1px solid blue;
+}
+
+footer {
+	width:99%;
+	height:100px;
+	border:1px solid blue;
+}
+
+
+

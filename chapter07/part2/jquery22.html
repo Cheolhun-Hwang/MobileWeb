@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery Event</title>
+		<script src="./js/jquery-3.2.1.min.js"></script>
+		<script>
+			$(document).ready(function () {
+				$("button").one("click", function() {
+					//  <button>요소가 처음 클릭됐을 때에만 실행됨.
+					$("#text").append("첫 번째 클릭 이벤트, 한 번만 실행됨<br>");					
+					
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div>
+			<h1>one() 메소드</h1>
+			<button>마우스를 클릭해 보세요!</button>
+			
+			<p id="text"></p>
+		</div>
+	</body>
+</html>
+
+

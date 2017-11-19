@@ -1,0 +1,233 @@
+@charset "UTF-8";
+
+body	{margin: 0;
+	font-family: '맑은 고딕', 'Apple SD Gothic Neo', sans-serif}
+
+/* 박스의 왼쪽 오른쪽에 공백 확보 */
+.header-site, .contents, .header-nav-inner, .footer-inner
+	{padding-left: 10px;
+	padding-right: 10px}
+
+
+/* 사이트 이름 */
+.site-name h1 a	{color: #83a4a8;
+	text-decoration: none}
+
+.site-name h1	{margin: 0;
+	font-size: 30px;
+	font-family: 'Paytone One', sans-serif;
+	font-weight: normal}
+
+
+/* 내비게이션 */
+.menu ul	{margin: 0;
+	padding: 0;
+	list-style: none}
+
+.menu li a	{display: block;
+	padding: 15px;
+	color: #000000;
+	font-size: 14px;
+	text-decoration: none}
+
+.menu li a:hover	{background-color: #75dbe7}
+
+.menu ul:after	{content: "";
+	display: block;
+	clear: both}
+
+.menu li	{float: left;
+	width: auto}
+
+
+/* 개요 */
+.summary	{margin-bottom: 20px}
+
+.summary a	{display: block;
+	border: solid 1px #dddddd;
+	color: #000000;
+	text-decoration: none}
+
+.summary a:hover	{box-shadow: 0 0 10px #dddddd}
+
+.summary img	{max-width: 100%;
+	height: auto;
+	border: none;
+	margin-bottom: 15px;
+	vertical-align: bottom}
+
+.summary h1	{margin-top: 0;
+	margin-bottom: 5px;
+	margin-left: 15px;
+	margin-right: 15px;
+	font-size: 22px}
+
+.summary p	{margin-top: 0;
+	margin-bottom: 15px;
+	margin-left: 15px;
+	margin-right: 15px;
+	font-size: 14px}
+
+/* 계속 읽기 */
+.more	{display: inline-block;
+	padding: 5px 15px;
+	background-color: #3077be;
+	color: #ffffff}
+
+.more i	{margin-left: 10px;
+			font-size:20px;}
+
+
+/* 배지 */
+.badge	{width: 120px;
+	height: 120px;
+	padding-top: 25px;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	border-radius: 60px;
+	background-color: #00a0e9;
+	color: #ffffff;
+	text-align: center;
+	box-shadow: 0 0 4px #aaaaaa}
+
+.badge i	{display: block;
+	font-size: 40px}
+
+
+/* 배지의 출력 위치 */
+.pickup	{position: relative}
+
+.badge	{position: absolute;
+	top: 44%;
+	right: -15px}
+
+
+/* 페이지네이션 */
+.page-nation	{text-align: center}
+
+.page-nation ul	{display: inline-block;
+	margin: 0;
+	padding: 0;
+	list-style: none}
+
+.page-nation li a	{display: block;
+	margin-left: 5px;
+	margin-right: 5px;
+	padding: 5px 10px;
+	border: solid 1px #aaaaaa;
+	color: #000000;
+	font-size: 14px;
+	text-decoration: none}
+
+.page-nation li a.active	{background-color: #cccccc}
+
+.page-nation li a:hover	{background-color: #eeeeee}
+
+.page-nation ul:after	{content: "";
+	display: block;
+	clear: both}
+
+.page-nation li	{float: left;
+	width: auto}
+
+
+/* 저작권 */
+.copyright p	{margin: 0;
+	color: #666666;
+	font-size: 1.2em;
+	text-align: center;}
+
+
+/* BOX2를 바의 형태로 디자인 */
+.header-nav	{background-color: #7cbac1}
+
+
+/* BOX5 위에 구분선을 추가 */
+.footer	{border-top: solid 1px #dddddd}
+
+
+/* 박스의 위아래 간격 */
+.header-site	{padding-top: 8px;
+	padding-bottom: 8px}
+
+.contents	{padding-top: 20px;
+	padding-bottom: 20px}
+
+.footer	{padding-top: 15px;
+	padding-bottom: 15px}
+
+
+/* ########### 599px 이하 ########### */
+@media (max-width: 599px) {
+
+	/* 배지 */
+	.badge	{-ms-transform: scale(0.5);
+		-ms-transform-origin: right top;
+		-webkit-transform: scale(0.5);
+		-webkit-transform-origin: right top;
+		transform: scale(0.5);
+		transform-origin: right top;
+		top: -8px;
+		right: 10px}
+	
+	
+	/* 내비게이션 */
+	.menu li a	{padding: 10px 3px;
+		font-size: 11px}
+	
+	/* 사이트 이름과 기사의 제목 */
+	.site-name h1, .summary h1	{font-size: 20px}
+	
+	/* 박스의 위아래 간격 */
+	.header-site	{padding-top: 4px;
+		padding-bottom: 4px}
+}
+
+
+/* ########### 600px 이상 ########### */
+@media (min-width: 600px) {
+
+	/* 개요를 가로 정렬하는 설정 */
+	.contents-list:after	{content: "";
+		display: block;
+		clear: both}
+	
+	.contents-list .summary	{float: left;
+		width: 50%}
+	
+	.contents-list .summary:nth-child(odd)
+		{padding-right: 15px;
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+		clear: both}
+	
+	.contents-list .summary:nth-child(even)
+		{padding-left: 15px;
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box}
+}
+
+
+
+/* ########### 600px 이상 ~ 767px 이하 ########### */
+@media (min-width: 600px) and (max-width: 767px) {
+
+	/* 배지의 출력 위치 */
+	.badge	{top: 30%;
+		right: 15px}
+
+}
+
+/* ########### 1040px 이상 ########### */
+@media (min-width: 1040px) {
+
+	/* 박스의 왼쪽 오른쪽에 공백 확보 */
+	.header-site, .contents, .header-nav-inner, .footer-inner
+		{width: 1000px;
+		margin-left: auto;
+		margin-right: auto}
+
+}

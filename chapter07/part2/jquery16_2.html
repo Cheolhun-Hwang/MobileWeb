@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Event</title>
+    <script src="./js/jquery-3.2.1.min.js"></script>
+    <script>
+        // 웹 페이지를 모두 불러오면
+        $(document).ready(function () {
+            /* body 태그에 h1 태그의 click 이벤트를 위임
+                   - body 태그 내부의 h1태그에서 click 이벤트가 발생했을 때 
+                     h1태그를 생성하여 body에 추가
+                */
+            $('body').on('click', 'h1', function() {                
+                $('<h1></h1>').text($(this).text()).appendTo('body');
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Header</h1>
+</body>
+</html>

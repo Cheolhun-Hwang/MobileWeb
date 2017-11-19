@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery Event</title>
+		<script src="./js/jquery-3.2.1.min.js"></script>
+		<style>
+			html * { margin:0; padding:0; }
+			body { margin-left:300px; margin-top:60px; }
+			#wrap { width:200px; height:200px; border:1px solid blue;
+					   background-color: blue; padding:150px;}
+			#box { width:200px; height:200px; background-color: red; color:#FFFFFF }
+		</style>
+		<script>
+			$(document).ready(function () {
+				$('#wrap').on('click', function(event){
+					$(this).css('background-color', 'yellow');
+				});
+
+				$('#box').on('click', function(event){
+				    //click 이벤트가 부모 요소에 전달되지 않도록 버블링 차단
+	                event.stopPropagation();
+					$(this).css('background-color', 'black');
+				});	
+			});
+		</script>
+	</head>
+	<body>
+		<div id="wrap">
+			<div id="box"></div>
+		</div>
+	</body>
+</html>
+
+

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Bootstrap, Components </title>
+
+    <!-- Bootstrap css -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/kfonts2.css" rel="stylesheet">
+    <!-- Fontawesome css -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="js/bootstrap.js"></script>
+    
+     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and Media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+ 
+  </head>
+  <body>
+   		
+  	<!-- components
+  		- button에 dropdown 추가
+  
+        -->
+					
+	<div class="container">	
+
+		<h1> 드롭다운 메뉴 </h1>		
+		<hr>
+		<h4>기본적인 드롭다운 </h4>
+		<div class="dropdown">
+		   <a data-toggle="dropdown" href="#">여기를 클릭하세요.</a>
+		   <ul class="dropdown-menu" role="menu">
+		    <!-- tabindex="-1" : 드롭다운 메뉴는 서브 메뉴이기 때문에 tab 키 적용을 안받게 하기 위해 -1 설정 -->
+		    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">메뉴 1</a></li>
+		    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">메뉴 2</a></li>
+		    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">메뉴 3</a></li>
+		    <li role="presentation" class="divider"></li><!-- 메뉴 분리 -->
+		    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">분리된 메뉴 </a></li>
+		  </ul>
+		</div>
+		
+		<hr>
+		<h4>data-toggle="dropdown"이 없는 경우 드롭운 메뉴가 보이지 없음.   </h4>
+		<div class="dropdown">
+		  <!--data-toggle="dropdown" 부분이 없으면 아무것도 보이지 않음 -->
+		   <ul class="dropdown-menu" role="menu">
+		    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">메뉴 1</a></li>
+		    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">메뉴 2</a></li>
+		    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">메뉴 3</a></li>
+		    <li role="presentation" class="divider"></li>
+		    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">분리된 메뉴 </a></li>
+		  </ul>
+		</div>
+		
+		<hr>
+		<h4>pull-right를 이용한 우측 정렬</h4>
+		<div class="dropdown">
+		   <a data-toggle="dropdown" href="#">여기를 클릭하세요.</a>
+		   <ul class="dropdown-menu pull-right" role="menu">
+		    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">메뉴 1</a></li>
+		    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">메뉴 2</a></li>
+		    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">메뉴 3</a></li>
+		    <li role="presentation" class="divider"></li>
+		    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">분리된 메뉴 </a></li>
+		  </ul>
+		</div>
+		
+		<hr>
+		<h4>드롭다운에 별도의 헤더 추가 가능</h4>
+		<div class="dropdown">
+		   <input type="button" data-toggle="dropdown" class="btn btn-default btn-primary" value="여기를 클릭하세요.">
+		   <ul class="dropdown-menu" role="menu">
+		    <li role="presentation" class="dropdown-header">헤더 </li>
+		    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">메뉴 1</a></li>
+		    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">메뉴 2</a></li>
+		    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">메뉴 3</a></li>
+		    <li role="presentation" class="divider"></li>
+		    <li role="presentation" class="dropdown-header">다른 헤더  </li>
+		    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">분리된 메뉴 </a></li>
+		  </ul>
+		</div>
+		
+		<hr>
+		<h4>li 에 disabled 속성 추가로 비활성화 가능 </h4>
+		<div class="dropdown">
+		   <button data-toggle="dropdown" class="btn btn-default btn-primary">여기를 클릭하세요.</button>
+		   <ul class="dropdown-menu" role="menu">
+		    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">메뉴 1</a></li>
+		    <li role="presentation" class="disabled"><a role="menuitem" tabindex="-1" href="#">메뉴 2</a></li>
+		    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">메뉴 3</a></li>
+		
+		  </ul>
+		</div>	
+	</div>
+  </body>
+</html>

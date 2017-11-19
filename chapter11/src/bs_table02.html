@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Bootstrap, Responsive util</title>
+
+    <!-- Bootstrap css -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="js/bootstrap.js"></script>
+    
+     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and Media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <style>
+    	body > div {border: 1px solid gray;}
+    </style>
+  </head>
+  <body>
+  		
+  	<!-- Table
+		-<table class="(table-bordered, table-hover, table-stripted)"></table>
+		-<tr class="(success, active, info, warning, danger)"></tr>
+		-->
+					
+	<div class="container">	
+		<div class="row">
+			<div class="col-xs-12">
+				<table class="table table-bordered table-hover">
+					<caption> Optional table Caption</caption>
+					<thead>
+						<tr>
+							<th class="col-xs-1 text-center">#</th>
+							<th class="col-xs-3 text-center">학번</th>
+							<th class="col-xs-3 text-center">이름</th>
+							<th class="col-xs-3 text-center">전화</th>
+							<th class="col-xs-2 text-center">비고</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="success">
+							<td>1</td>
+							<td>1111</td>
+							<td>손흥민</td>
+							<td>010-1234-1234</td>
+							<td>축구</td>
+						</tr>
+						<tr class="active">
+							<td>2</td>
+							<td>2222</td>
+							<td>이승엽</td>
+							<td>010-2222-2222</td>
+							<td>야구</td>
+						</tr>	
+						<tr class="info">
+							<td>3</td>
+							<td>3333</td>
+							<td>손연재</td>
+							<td>010-3333-3333</td>
+							<td>체조</td>
+						</tr>
+						<tr class="warning">
+							<td>4</td>
+							<td>4444</td>
+							<td>김연경</td>
+							<td>010-4444-4444</td>
+							<td>배구</td>
+						</tr>								
+					</tbody>					
+				</table>
+			</div>				
+		</div>
+	</div>
+	<hr>
+	<!-- 메뉴를 왼쪽에, 테이블을 오른쪽에 넣는 레이아웃 -->
+	<div class="container">	
+		<div class="row">
+			<div class="col-sm-2">
+				<ul class="nav">
+					<li><a>메뉴1</a></li>
+					<li><a>메뉴2</a></li>
+					<li><a>메뉴3</a></li>
+				</ul>
+			</div>
+			<div class="col-sm-10">
+				<table class="table table-bordered table-hover">
+					<caption> Optional table Caption</caption>
+					<thead>
+						<tr>
+							<th class="col-xs-1 text-center">#</th>
+							<th class="col-xs-3 text-center">학번</th>
+							<th class="col-xs-3 text-center">이름</th>
+							<th class="col-xs-3 text-center">전화</th>
+							<th class="col-xs-2 text-center">비고</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="success">
+							<td>1</td>
+							<td>1111</td>
+							<td>손흥민</td>
+							<td>010-1234-1234</td>
+							<td>축구</td>
+						</tr>
+						<tr class="active">
+							<td>2</td>
+							<td>2222</td>
+							<td>이승엽</td>
+							<td>010-2222-2222</td>
+							<td>야구</td>
+						</tr>	
+						<tr class="info">
+							<td>3</td>
+							<td>3333</td>
+							<td>손연재</td>
+							<td>010-3333-3333</td>
+							<td>체조</td>
+						</tr>
+						<tr class="warning">
+							<td>4</td>
+							<td>4444</td>
+							<td>김연경</td>
+							<td>010-4444-4444</td>
+							<td>배구</td>
+						</tr>								
+					</tbody>					
+				</table>
+			</div>				
+		</div>
+	</div>
+  </body>
+</html>

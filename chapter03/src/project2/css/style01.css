@@ -1,0 +1,69 @@
+@charset "UTF-8";
+@import url(http://fonts.googleapis.com/earlyaccess/hanna.css); 
+@import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css); 
+@import url(http://fonts.googleapis.com/earlyaccess/jejuhallasan.css); 
+@import url(http://fonts.googleapis.com/earlyaccess/jejumyeongjo.css); 
+
+body	{margin: 0;
+	font-family: '맑은 고딕', 'Apple SD Gothic Neo', sans-serif}
+
+/*    Temporary CSS    */
+header {
+	width:99%;
+	height:100px;
+	border:1px solid blue;
+}
+
+section {
+	width:99%;
+	height:700px;
+	border:1px solid blue;
+}
+
+footer {
+	width:99%;
+	height:100px;
+	border:1px solid blue;
+}
+
+/* 박스의 왼쪽 오른쪽에 공백 확보 */
+.header-site, .contents, .header-nav-inner, .footer-inner
+	{padding-left: 10px;
+	padding-right: 10px;}
+
+
+/* 사이트 이름 */
+.site-name h1 a	{color: #83a4a8; /* 사이트 이름 링크 스타일 지정 */
+	text-decoration: none}
+
+.site-name h1	{margin: 0; /* 사이트 이름 마진, 폰트 스타일 지정 */
+	font-size: 30px;
+	font-family: 'Paytone One', sans-serif;
+	font-weight: normal;}
+
+/* 사이트 아이콘 오른쪽 여백 설정 */
+.site-name h1 a i	{ /* 사이트 이름 링크 스타일 지정 */
+	margin-right: 10px;}
+
+/* 내비게이션 */
+.menu ul	{margin: 0;/* 메뉴 목록 스타일 지정 */
+	padding: 0;
+	list-style: none;}
+
+.menu li a	{ /* 링크 스타일 지정 */
+	display: block;/* 링크 가능한 범위 지정을 위해 block으로 지정 */
+	padding: 15px;/* 링크 내부 여백을 늘려 링크 범위를 키우기 위해 지정 */
+	color: #000;
+	font-size: 1.2em;
+	text-decoration: none;}
+
+.menu li a:hover	{color: #fff;/* 메뉴 항목에 마우스를 올렸을 때 스타일 지정 */
+	background-color: #75dbe7}
+
+.menu ul	{overflow:hidden ;}/* 메뉴 항목(li)을 가로로 배치하기 위해 스타일 지정 */
+
+.menu li	{float: left;/*  메뉴 항목(li)을 왼쪽부터 가로방향으로 순서대로 배치 */ 
+	width: auto}
+
+
+

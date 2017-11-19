@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery Event</title>
+		<script src="./js/jquery-3.2.1.min.js"></script>
+		<style>
+			html * { margin:0; padding:0; }
+			#wrap { margin-top:140px; margin-left: 330px;}
+			#control { padding: 10px;}
+			#box { width:150px; height:150px; background-color:blue; 
+				   border:2px solid blue; position:absolute; left:340px; }
+		</style>
+		<script>
+			$(document).ready(function () {
+				var $box = $('#box');
+				var $openBtn = $('#control > .open');
+				var $closeBtn = $('#control > .close');
+				var $stopBtn = $('#control > .stop');
+				
+				$openBtn.click(function(){;//1초안에 높이 500px만큼 애니메이션
+					$box.animate({height:500}, {duration:1000})
+				});				
+				$closeBtn.click(function(){;//1초안에 높이 0px만큼 애니메이션
+					$box.animate({height:0}, {duration:1000});
+				});				
+				$stopBtn.click(function(){
+					$box.stop();;//애니메이션을 stop시킴
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div id="wrap">
+			<div id="control">
+				<input class="open" type="button" value="슬라이드 Down" />
+				<input class="close" type="button" value="슬라이드 Up" />
+				<input class="stop" type="button" value="슬라이드 Stop" />
+			</div>
+			<div id="box"></div>
+		</div>
+	</body>
+</html>
+
+

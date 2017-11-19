@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery Basic</title>
+		<script src="./js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript">	
+				$(document).ready(function() {
+				  		  $(":text").css("border","1px dashed #f00");
+						  $(":checked").attr("checked",false);
+						  $(":selected").attr("selected",false);
+				 });			
+		</script>		
+	</head>
+	<body>
+			<div id="content" >
+				   <h1>탐색 선택자</h1>
+				  <div>
+						   <label for="user_name">이름</label>
+						   <input type="text" name="user_name" id="user_name" />
+				  </div>
+				  <div>
+				  		   <label for="aggre_yn">사용자 동의여부</label>
+						   <input type="checkbox" name="accept" id="accept" checked="checked" />
+						   <label for="accept"> 예 </label>
+				  </div>
+				  <div>
+				  	 	   <label for="rel_site">사이트</label>
+						   <select name="rel_site" id="resl_site">
+							      <option value="네이버">네이버</option>
+							      <option value="구글" selected="selected">구글</option>
+						   </select>
+				  </div>
+			</div>
+	</body>
+</html>
+
+
+
+

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>jQuery Basic</title>
+    <script src="./js/jquery-3.2.1.min.js"></script>		
+    <script type="text/javascript">	
+        // 웹 페이지를 모두 불러오면
+        $(document).ready(function () {
+            // h1 태그를 모두 추출하여, each문을 돌려 반복처리
+            $("h1").each(function (index, enelemt) {
+                if (index % 2 == 1) {//짝수 요소에
+                    // 배경 색상을 적용합니다.
+                    $(this).css('backgroundColor', 'red');
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>HeaderA</h1>
+    <h1>HeaderB</h1>
+    <h1>HeaderC</h1>
+    <h1>HeaderD</h1>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery Event</title>
+		<script src="./js/jquery-3.2.1.min.js"></script>
+		<style>
+			#wrap { margin-left:30px; }
+			#nav > input { margin-left:20px; }
+			#box { width:150px; height:150px; border:2px solid blue;}
+			#box.over { background-color: red; }
+			#box.out { background-color: green; }
+			#box.click { background-color: blue; }
+			#box > p { padding:30px; color:white; }
+			#nav { margin:20px; }
+		</style>				
+		<script>
+				$(document).ready(function () {
+						var $box = $('#box');//id="box" 요소를 선택하여 변수에 저장
+						
+						$box.on({
+							mouseover:function(){
+								var $eventElement = $(this);
+								$eventElement.removeClass().addClass('box over');
+								$eventElement.find('> p').text('mouseover');
+							},
+							mouseout:function(){
+								var $eventElement = $(this);
+								$eventElement.removeClass().addClass('box out');
+								$eventElement.find('> p').text('mouseout');
+							},
+							click:function(){
+								var $eventElement = $(this);
+								$eventElement.removeClass().addClass('box click');
+								$eventElement.find('> p').text('click');
+							}
+					});
+				
+					var $nav = $('#nav');//id="nav" 요소를 선택하여 변수에 저장
+					
+					//find()메서드는 전체 요소가 아닌 선택된 요소안에서 지정한 선택자를 찾기 때문에 속도가 빠름 
+					$nav.find('> .mouseover').on('click', function(){//class="mouseover"에 이벤트 등록
+					    //trigger()메소드를 호출하여 box에 mouseover 이벤트를 강제로 발생시킴
+						$box.trigger('mouseover', $(this));
+					});
+					
+					$nav.find('> .mouseout').on('click', function(){
+						$box.trigger('mouseout', $(this));
+					});
+					
+					$nav.find('> .click').on('click', function(){
+						$box.click();//'click'이벤트가 발생하면 box에 수동으로 'click'를 발생시킴
+					});
+					
+					//interval 버튼을 클릭하면 2초마다 myTimer()함수를 호출하여 강제로 이벤트 발생
+					var myVar;
+					var cnt = 0;
+					
+					$nav.find('> .interval').on('click', function(){
+						myVar = setInterval(myTimer, 2000);	
+						cnt = 0;		
+					});
+	
+					function myTimer() {
+						if (cnt < 3) {
+							cnt++;
+							if (cnt == 1) {
+								$box.trigger('mouseover', $(this));
+							} 
+							else if(cnt == 2) {
+								$box.trigger('mouseout', $(this));
+							}else {
+								$box.trigger('click', $(this));
+							}
+						}else {
+							clearInterval(myVar);//	setInterval() 해제					
+						}
+					};					
+			});
+		</script>
+	</head>
+	<body>
+		<div id="nav">
+			<input class="mouseover" type="button" value="mouseover" />
+			<input class="mouseout" type="button" value="mouseout" />
+			<input class="click" type="button" value="click" />
+			<input class="interval" type="button" value="interval" />
+		</div>
+		<div id="wrap">
+			<div id="box" class="out">
+				<p> eventType </p>	
+			</div>
+		</div>
+	</body>
+</html>
+

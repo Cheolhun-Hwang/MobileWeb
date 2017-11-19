@@ -1,0 +1,156 @@
+@charset "UTF-8";
+@import url(http://fonts.googleapis.com/earlyaccess/hanna.css); 
+@import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css); 
+@import url(http://fonts.googleapis.com/earlyaccess/jejuhallasan.css); 
+@import url(http://fonts.googleapis.com/earlyaccess/jejumyeongjo.css); 
+
+body	{margin: 0;
+	font-family: '맑은 고딕', 'Apple SD Gothic Neo', sans-serif}
+
+/*    Temporary CSS    */
+header {
+	width:99%;
+	height:100px;
+	border:1px solid blue;
+}
+
+section {
+	width:99%;
+	height:700px;
+	border:1px solid blue;
+}
+
+footer {
+	width:99%;
+	height:100px;
+	border:1px solid blue;
+}
+
+/* 박스의 왼쪽 오른쪽에 공백 확보 */
+.header-site, .contents, .header-nav-inner, .footer-inner
+	{padding-left: 10px;
+	padding-right: 10px;}
+
+
+/* 사이트 이름 */
+.site-name h1 a	{color: #83a4a8; /* 사이트 이름 링크 스타일 지정 */
+	text-decoration: none}
+
+.site-name h1	{margin: 0; /* 사이트 이름 마진, 폰트 스타일 지정 */
+	font-size: 30px;
+	font-family: 'Paytone One', sans-serif;
+	font-weight: normal;}
+
+/* 사이트 아이콘 오른쪽 여백 설정 */
+.site-name h1 a i	{ /* 사이트 이름 링크 스타일 지정 */
+	margin-right: 10px;}
+
+/* 내비게이션 */
+.header-nav	{background-color: #7cbac1}/* nav 배경색 지정 */
+
+.menu ul	{margin: 0;/* 메뉴 목록 스타일 지정 */
+	padding: 0;
+	list-style: none;}
+
+.menu li a	{ /* 링크 스타일 지정 */
+	display: block;/* 링크 가능한 범위 지정을 위해 block으로 지정 */
+	padding: 15px;/* 링크 내부 여백을 늘려 링크 범위를 키우기 위해 지정 */
+	color: #000;
+	font-size: 1.2em;
+	text-decoration: none;}
+
+.menu li a:hover	{color: #fff;/* 메뉴 항목에 마우스를 올렸을 때 스타일 지정 */
+	background-color: #75dbe7}
+
+/*
+.menu ul:after	{content: "";
+	display: block;
+	clear: both;} */
+	
+.menu ul	{overflow:hidden ;}/* 메뉴 항목(li)을 가로로 배치하기 위해 스타일 지정 */
+
+.menu li	{float: left;/*  메뉴 항목(li)을 왼쪽부터 가로방향으로 순서대로 배치 */ 
+	width: auto;}
+	
+/* ================================================= */	
+	
+/* 컨텐츠  */
+.category	{margin-bottom: 20px;} /* 모든 category에 margin-bottom 스타일 지정 */
+
+.category a	{/* category의 링크(a)에 스타일 지정 */
+	display: block; 
+	border: solid 1px #dddddd;
+	color: #000000;
+	text-decoration: none;}
+
+.category a:hover	{box-shadow: 0 0 10px #dddddd;}/* 마우스 오버시 box-shadow 처리 */
+
+.category img	{/*  그림에 스타일 지정 */
+	max-width: 100%; /* 브라우저 화면에 맞게 크기가 변경될 수 있도록 width:100%로 지정 */
+	height: auto; /* 브라우저 화면에 맞게 크기가 변경될 수 있도록 height:auto로 지정 */
+	border: none;/* ie10이전 버전에서그림 주변에 보더 생기는것을 제거 */ 
+	margin-bottom: 15px;
+	vertical-align: bottom;}
+
+.category h1	{margin-top: 0;/*  제목 스타일 지정 */
+	margin-bottom: 5px;
+	margin-left: 15px;
+	margin-right: 15px;
+	font-size: 22px;}
+
+.category p	{margin-top: 0;/*  설명글 스타일 지정 */
+	margin-bottom: 15px;
+	margin-left: 15px;
+	margin-right: 15px;
+	font-size: 14px;}
+		
+/* 계속 읽기 */
+.more	{/* "계속읽기" 버튼 추가 및 스타일 지정 */
+	display: inline-block;
+	padding: 5px 20px;
+	background-color: #3077be;
+	color: #ffffff;}
+
+.more i	{margin-left: 10px;/* 웹폰트 아이콘(>>) 스타일 지정 */
+			font-size:20px;}
+
+/* 배지 */
+.badge	{/* 배지 스타일 지정 */
+	width: 120px; 	height: 120px;/* 배지 크기 지정 */
+	padding-top: 25px;
+	/* padding-top 여백이 배지 크기(height)에 포함될 수 있도록 box-sizing을  border-box;로 지정 */
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	border-radius: 60px;/* 배지 모양을 원형으로 하기 위해 radius를 너비와 높이의 1/2로 지정 */
+	background-color: #00a0e9;
+	color: #ffffff;
+	text-align: center;
+	box-shadow: 0 0 4px #aaaaaa;}/* 배지에 그림자 효과를 지정 */
+
+.badge i	{/* 배지 크기에 맞게 아이콘과 글자 스타일 지정 */
+	display: block;/* 아이콘과 글자 사이에 개행을 넣고자 display 속성을 block으로 지정  */
+	font-size: 40px}/* 글자 크지 지정 */
+
+/* 배지의 출력 위치 */
+.pickup	{position: relative;}/* 배지를 article(.pickup) 위에 겹쳐 올리기 위해 position: relative을 지정 */
+
+.badge	{position: absolute;/* 배지를 .pickup에 배치하기 위해 절대위치로 스타일 지정 */
+	top: 44%;
+	right: -15px}
+
+/* =======================================================*/
+	
+	
+/* ########### 1040px 이상 ########### */	
+@media (min-width: 1040px) {
+
+	/* 박스의 왼쪽 오른쪽에 공백 확보 */
+	.header-site, .contents, .header-nav-inner, .footer-inner
+		{width: 1000px;
+		margin-left: auto;
+		margin-right: auto}
+}
+
+
+

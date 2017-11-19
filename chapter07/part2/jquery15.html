@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery Event</title>
+		<script src="./js/jquery-3.2.1.min.js"></script>
+		<style>
+			#wrap { margin-left:300px; }
+			#nav > input { margin-left:300px; }
+			.box { width:150px; height:150px; border:2px solid blue;}
+			.box.over { background-color: red; }
+			.box.out { background-color: green; }
+			.box.click { background-color: blue; }
+			.box > p { padding:30px; color:white; }
+			#nav { margin:20px; }
+		</style>
+
+		<script>
+				$(document).ready(function () {
+						var $box = $('.box');//id="box"요소를 선택자로 선택				
+						
+						$box.bind({
+							mouseover:function(){
+								var $tg = $(this);
+								$tg.removeClass().addClass('box over');
+								$tg.find('> p').text('mouseover');
+							},
+							mouseout:function(){
+								var $tg = $(this);
+								$tg.removeClass().addClass('box out');
+								$tg.find('> p').text('mouseout');
+							},
+							click:function(){
+								var $tg = $(this);
+								$tg.removeClass().addClass('box click');
+								$tg.find('> p').text('click');
+							}
+					});
+					
+					$('#nav > :input').bind('click', function(){
+					    //clone()메소드를 사용해 box를 복제해서 wrap에 추가
+						$('#wrap').append($box.eq(0).clone());
+					});
+				});
+		</script>
+	</head>
+	<body>
+		<div id="nav">
+			<input type="button" value="box추가" />
+		</div>
+
+		<div id="wrap">
+			<div class="box  out">
+				<p> eventType </p>	
+			</div>
+		</div>
+
+	</body>
+</html>
+

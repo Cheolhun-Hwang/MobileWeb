@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery Basic</title>
+		<script src="./js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript">
+        
+		$(document).ready(()=>{
+			var str1 = "Hello";
+			var str2 = "Welcom";
+
+			$("#btn1").click(()=>{
+				$("#result").html(str1);
+			});
+			
+			$("#btn2").click(()=>{
+				$("#result").html(str2);
+			});
+		});
+
+		</script>
+	</head>
+	<body>
+        <h2>버튼을 클릭하세요.</h2>
+        <hr>
+	    <button id="btn1">버튼1</button>
+	    <button id="btn2">버튼2</button>
+	    
+	    <p> == Result == </p>
+	    <div id="result"></div>
+	</body>
+</html>

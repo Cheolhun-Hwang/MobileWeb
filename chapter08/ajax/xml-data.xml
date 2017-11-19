@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stuinfo>
+    <student>
+         <studentName>이정민</studentName> 
+    </student>
+    <student>
+         <studentName>손미나</studentName> 
+    </student>
+    <student>
+         <studentName>차영호</studentName> 
+    </student>
+    <student>
+         <studentName>황민호</studentName> 
+    </student>           
+</stuinfo>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery Basic</title>
+		<script src="./js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript">	
+				$(document).ready(function() {
+						// .image의 크기를 조정.
+						$("img").css({"width":"150px", "height":"150px", "padding":"5px"});
+		
+						// 함수를 2초마다 실행.
+						setInterval(function () {
+							// 마지막 이미지를 body에 추가
+							$("img").last().prependTo("body");
+						}, 2000);
+				});			
+		</script>		
+	</head>
+	<body>
+			<div>
+					<img src="./img/dog1.png" />
+					<img src="./img/dog2.png" />
+					<img src="./img/dog3.png" />
+					<img src="./img/dog4.png" />
+					<img src="./img/dog5.png" />
+		</div>
+	</body>
+</html>
+
+
+
+

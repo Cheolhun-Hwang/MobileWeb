@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery Event</title>
+		<script src="./js/jquery-3.2.1.min.js"></script>
+		<script>
+			$(document).ready(function () {
+				/* 이벤트 위임처리 
+			     * $('부모요소').on("이벤트명", "이벤트를 발생시키는 자식요소 선택자", "이벤트처리함수" 
+			     * 이벤트를 위임하면 on()메서드는 첫 번째 인수로 전달된 이벤트가 전파되었을 때, 
+			     * 그 이벤트를 발생한 요소가 두 번째 인수로 전달된 선택자와 같은가를 검사하여
+			     * 같으면 이벤트를 처리함 */			    
+                 $("ul").on("click", "a", function(event) {
+                     event.preventDefault();//기본 이벤트 기능을 중지
+                     $("#text").append("이 링크는 동작하지 않습니다!<br>");
+                 })
+				 
+				//<ul>요소에 자식 요소 <a> 를 추가
+				$("button").one("click", function() {
+					$("ul").append('<li><a href="http://jquery.com">jQuery</a></li>');
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div id="wrap">			
+			<h3>이벤트 위임</h3>
+			<p>아래 버튼을 눌러 링크를 추가하고, 링크를 클릭해 보세요!</p>
+			<ul>
+				<li><a href="http://www.google.com">GOOGLE</a></li>
+				<li><a href="http://www.naver.com">NAVER</a></li>
+			</ul>
+			<button>리스트 아이템 추가</button>
+			
+			<p id="text"></p>	
+		</div>
+	</body>
+</html>
+
+

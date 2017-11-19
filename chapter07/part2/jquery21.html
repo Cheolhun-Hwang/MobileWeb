@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery Event</title>
+		<script src="./js/jquery-3.2.1.min.js"></script>
+		<script>
+			$(document).ready(function () {
+				$("#google").on("click", function(e) {
+                    //컨폼 창에서 "취소" 버튼을 클릭하면 하이퍼링크 기본 이벤트 실행을 중지
+					if (confirm("정말로 구글로 이동할까요?") == false) {
+						e.preventDefault();
+					}
+				});
+				
+                //오른쪽 마우스 클릭시 contextmenu 기본 이벤트 실행을 중지
+				$(document).on("contextmenu", function(e) {
+	                   e.preventDefault();
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div>
+			<a id="google" href="http://www.google.com">구글(google.com)</a>
+		</div>
+
+	</body>
+</html>
+
+

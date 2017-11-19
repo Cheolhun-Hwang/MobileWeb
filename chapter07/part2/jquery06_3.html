@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery Event</title>
+		<script src="./js/jquery-3.2.1.min.js"></script>
+		<style>
+			.focused { border: solid 3px gray; background-color: aqua; }
+		</style>
+		<script>
+			$(document).ready(function () {
+				    //입력필드 focus,  blur 이벤트 처리
+				    $("input.effect").on("focus  blur", function(e) {
+						$(this).toggleClass("focused");//.focused를 토글 처리
+					});
+					
+					// 한글만 입력하도록 이벤트 처리
+					$("input.korean").on("keyup  keypress", function(e) {
+						//한글 패턴에 부합하는 모든 문자열을 찾기 위해 정규식 사용
+						var pat = /[^ㄱ-힣\s\,\.\"\']/g;//
+						var v = $(this).val();
+						//한글 패턴에 맞지 않는 문자를 입력하면 ""으로 치환 
+						$(this).val(v.replace(pat, ""));
+					});
+					
+					//숫자만 입력하도록 이벤트 처리
+					$("input.number").keydown(function(e) {
+						//입력 가능한 키-코드 패턴을 저장 
+				        var chrs = [48,49,50,51,52,53,54,55,56,57];		//키보드 위쪽 0~9
+				        chrs = chrs.concat([96,97,98,99,100,101,102,103,104,105])//숫자 키패드
+				        chrs = chrs.concat([37,38,39,40])		//방향키(커서키)
+				        chrs = chrs.concat([13,8,9])		//엔터, 백스페이스, 탭 키
+				        chrs = chrs.concat([45,46,36,35])		//ins,del,home,end
+				        chrs = chrs.concat([16,17,18,190])		//shift, ctrl, alt, 소수점(.)
+				        
+				        //사용자가 입력한 키와 등록된 키-코드 패턴을 비교
+				        var k = e.keyCode;//사용자가 입력한 키코드는 이벤트객체(e)를 통해서 받음
+				        
+				        var isValid = false;
+				        //입력한 키값과 등록된 키-코드 패턴을 비교
+				        for(var i=0; i < chrs.length; i++) {
+				            if (k == chrs[i]) {
+				                isValid = true;
+				                break;
+				            } 
+				        }
+						/* 입력한 키와 등록한 키-코드가 틀리면 
+						   유효하지 않은 문자열이므로 기본 이벤트 실행을 중지 */
+				        if (isValid == false) {
+				            e.preventDefault();
+                            alert("숫자만 입력가능합니다.");
+				        }
+					});	
+			});
+		</script>
+	</head>
+	<body>
+		한글입력 : <input type="text" class="korean effect" /> <br />
+		숫자입력 : <input type="text" class="number effect" /> <br />
+	</body>
+</html>
+

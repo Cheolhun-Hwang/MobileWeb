@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery Basic</title>
+		<script src="./js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript">	
+				$(document).ready(function() {
+						var $cont = $("#copy").text();				
+						$("#wrap > span").text($cont)
+						                 .css({"color":"white", "font-size":"20px", "background-color":"blue"
+						});
+				});			
+		</script>		
+		<style>
+				body > span { color:red; font-size:20px; }
+				li { margin:5px; list-style:none; border:1px solid green; }
+				#wrap { border:1px solid blue; padding:20px; margin:20px;}
+				#copy { border:1px solid blue; padding:20px; margin:20px;}
+		</style>
+	</head>
+	<body>
+		<span>아래 li엘리먼트안의 글자를 읽어서 위의 글자를 바꿔주세요.</span>
+
+		<div id="wrap">
+			<span>이곳의 내용을 바꿔 주세요.</span>
+		</div>
+		
+		<div id="copy">
+			<ul>
+				<li>여기의 </li>
+				<li>텍스트를 </li>
+				<li>복사해서 붙여 넣어 주세요.</li>
+			</ul>
+		</div>
+	</body>
+</html>
+
+
+
+

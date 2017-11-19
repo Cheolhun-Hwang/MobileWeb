@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery Event</title>
+		<script src="./js/jquery-3.2.1.min.js"></script>
+		<script>
+				$(document).ready(function () {
+					$("div#cont").on({ 
+					  "mouseover focus" : function(){ 
+					           $(this).css("color","red"); 
+                      },
+                      "mouseout blur" : function(){ 
+					           $(this).css("color","blue"); 
+					  }
+			    });
+			});
+		</script>
+	</head>
+	<body>
+		    <div>
+		    		<div id="cont"><h1> 내용 </h1></div>
+		    </div>		
+	</body>
+</html>
+

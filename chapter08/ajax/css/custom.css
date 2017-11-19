@@ -1,0 +1,63 @@
+section.content-wrapper{
+    width: 100vw;
+    height: 100vh;
+    background: rgba(5, 110, 134, 1);
+    background: -moz-linear-gradient(top, rgba(5, 110, 134, 1) 0%, rgba(113, 206, 239, 1) 38%, rgba(65, 185, 177, 1) 61%, rgba(5, 110, 134, 1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(5, 110, 134, 1)), color-stop(38%, rgba(113, 206, 239, 1)), color-stop(61%, rgba(65, 185, 177, 1)), color-stop(100%, rgba(5, 110, 134, 1)));
+    background: -webkit-linear-gradient(top, rgba(5, 110, 134, 1) 0%, rgba(113, 206, 239, 1) 38%, rgba(65, 185, 177, 1) 61%, rgba(5, 110, 134, 1) 100%);
+    background: -o-linear-gradient(top, rgba(5, 110, 134, 1) 0%, rgba(113, 206, 239, 1) 38%, rgba(65, 185, 177, 1) 61%, rgba(5, 110, 134, 1) 100%);
+    background: -ms-linear-gradient(top, rgba(5, 110, 134, 1) 0%, rgba(113, 206, 239, 1) 38%, rgba(65, 185, 177, 1) 61%, rgba(5, 110, 134, 1) 100%);
+    background: linear-gradient(to bottom, rgba(5, 110, 134, 1) 0%, rgba(113, 206, 239, 1) 38%, rgba(65, 185, 177, 1) 61%, rgba(5, 110, 134, 1) 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#056e86', endColorstr='#056e86', GradientType=0);
+    max-width:500px;
+    margin:0 auto;
+}
+.input-wrapper{
+    margin:0 auto;
+    text-align: center;
+}
+input{
+    width:50%;
+    height:50px;
+    max-width:500px;
+    text-align: center;
+    font-size:20px;
+    border:none;
+    border-radius: 10px 10px 0 0;
+}
+button{
+    width:50%;
+    max-width:500px;
+    height:30px;
+    display: block;
+    text-align: center;
+    margin:0 auto;
+    border:none;
+    border-radius: 0 0 10px 10px;
+    background-color: #0A738B;
+    color:#FFF;
+}
+h2{
+    margin:0 auto;
+    text-align: center;
+    color:#FFF;
+    padding-top:50px;
+    padding-bottom:50px;
+}
+.result-wrapper{
+    margin-top:50px;
+    text-align: center;
+}
+.result-wrapper img{
+    margin-top: 50px;
+    width:100px;
+}
+
+#weather-info {
+    border:1px solid #333;
+    background: rgba(5, 110, 134, 1);
+    padding: 2em;
+    word-wrap: break-word;
+    margin-bottom: 2em;
+    color: #FFF;
+}

@@ -1,0 +1,290 @@
+﻿@charset "utf-8";
+@import url(http://fonts.googleapis.com/css?family=Poiret+One);
+
+/* reset */
+* { margin:0;  padding:0;}
+ol,ul { list-style: none; }
+a { outline:0; text-decoration:none; color:#555; }
+img { border:0;}
+body { font:12px/1.6 'Poiret One'; color:#555; } 
+
+
+/* == 기본 레이아웃(1600px이상) 설정 == 
+  - header는 position:fixed로 화면 왼쪽에 배치하고, 오른쪽에 nav와 section을 배치
+  - 모든 요소의 넓이는 퍼센트를 사용하여 가변폭으로 설정  
+ 
+  - <header>, <nav> 태그에  transition:all 0.5s 설정하고,
+    <article>에 animation:scale 1s 1 추가 설정 */     
+header { position:fixed; width:15%; height:100%; background:#fff; top:0px; left:0px; transition:all 0.5s}
+nav { position:relative; width:85%; height:35px; background:#212121; margin-left:15%; transition:all 0.5s;}
+
+section { width:85%; position:relative; margin-left:15%; }
+
+/* article에 animation 추가(처음 로딩시 1번만 실행) */
+article { float:left; height:260px; animation:ani 1s 1;}/* article은 공통적으로 높이 260px, float:left로 지정 */
+
+/* == 각각 박스(article) 크기 지정 ==
+   - nth-child() 구문을 이용해서 각각의 article에 넓이와 높이, 색상을 지정  */
+article:nth-child(1) { width:60%; height:520px; background:#ddd;}
+article:nth-child(2) { width:40%; background:#ccc;}
+article:nth-child(3) { width:20%; background:#bbb;}
+article:nth-child(4) { width:20%; background:#aaa;}
+article:nth-child(5) { width:20%; background:#999;}
+article:nth-child(6) { width:40%; background:#888;}
+article:nth-child(7) { width:20%; background:#777;}
+article:nth-child(8) { width:20%; background:#666;}
+article:nth-child(9) { width:40%; background:#555;}
+article:nth-child(10) { width:20%;	background:#444;}
+article:nth-child(11) { width:20%; background:#333;}
+article:nth-child(12) { width:20%;	background:#222;}
+
+/* 모션 효과를 scale(0)에서 scale(1)로 주도록 키프레임 선언 */
+@keyframes ani {
+	0% { transform:scale(0); }	
+	100% { transform:scale(1); }
+}
+
+/* --------------------------------------------------------------------------------*/
+/* header 컨텐츠 배치 */
+/* h1에 넓이와 높이를 설정한 뒤, 이미지로 로고 이미지를 삽입하고, h1에 있는 "logo" 텍스트가 보이지 않도록
+   화면 밖으로 배치(text-indent:-99999px) */
+header h1 { width:180px; height:136px; background:url(../img/logo1.png) no-repeat 0px 0px; 
+            background-size:contain; position:absolute; top:70px; left:50%;
+            margin-left:-90px;	text-indent:-99999px;}
+            
+#gnb { position:absolute; top:300px; right:57px;}
+/* #gnb a를 block 모델로 변경한 뒤, padding으로 모양을 잡아주고, a에 마우스 오버 시 처리할 
+   transition을 미리 설정  */  
+#gnb a { display:block; padding:8px 30px; font-size:17px; font-weight:bold; color:#555; 
+         text-align:left; line-height:1.8; transition:all .5s;}
+#gnb a:hover { color:skyblue;}/* 마우스 오버 시 글자색을 바꾼다. */ 
+#gnb a i { margin-right:13px;}
+
+/* .snsSet 넓이와 높이를 설정한 후 왼쪽으로 플로팅 시켜 배치 */
+.snsSet { width:90px; height:47px; position:absolute; bottom:50px; right:50%; margin-right:-45px;}
+.snsSet a { float:left;}
+/* --------------------------------------------------------------------------------*/
+
+/* == nav == */
+/* 네비게이션 메뉴 위치 설정 */
+nav a:nth-child(1) { position:absolute; top:5px; left:10px;}
+nav a:nth-child(2) { position:absolute; top:5px; left:150px;}
+nav a:nth-child(3) { position:absolute; top:5px; right:90px;}
+nav a:nth-child(4) { position:absolute; top:5px; right:10px;}
+
+/* == <section>태그의 <article>에 컨텐츠 삽입 == */
+/*-------------------------------------------------------------------*/
+/* article에 속한 div의 넓이와 높이를 100%로 설정하고, relative속성을 부여하여,
+   추후 자식으로 삽입된 absolute 요소들이 해당 div안에서 움직이도록 설정하고,
+   요소가 부모의 범위를 벗어날 때 영역을 벗어난 부분을 숨기기 위해 overflow:hidden으로 설정,  */
+article>div { position:relative; width:100%; height:100%; overflow:hidden; cursor:pointer; }
+
+/* 배경이미지 삽입*/
+article .bg1 { background-image:url(../img/pic1.jpg);}
+article .bg2 { background-image:url(../img/pic2.jpg);}
+article .bg3 { background-image:url(../img/pic3.jpg);}
+article .bg4 { background-image:url(../img/pic4.jpg);}
+article .bg5 { background-image:url(../img/pic5.jpg);}
+article .bg6 { background-image:url(../img/pic6.jpg);}
+article .bg7 { background-image:url(../img/pic7.jpg);}
+
+/* 이미지박스 */
+article .bg { background-size:cover; background-position:center center; }
+article .bg span { font-size:60px; color:#fff;	position:absolute; bottom:0px; right:20px; transform:scale(10); opacity:0;	transition:all 0.6s;}
+article .bg1 span { font-size:170px; bottom:-76px;	right:-6px; opacity:1; transform:scale(1); transition:all 0.5s;}
+
+/*이미지박스 호버효과*/
+article:hover .bg span { opacity:1; transform:scale(1);}
+article .bg1:hover span { transform:rotateY(360deg); color:#222; }
+
+/* 텍스트박스 */
+article .txt { color:#666; background:#fff; box-sizing:border-box; padding:40px 30px; transition:all 1s;}
+article:nth-child(3) .txt { background:#bff7fa;}
+article:nth-child(11) .txt { background:#e3f1fb;}
+article .txt i { font-size:300px; color:#b2effc; opacity:0; position:absolute; bottom:-70px; right:-200px; transition:all 0.7s;}
+article:nth-child(3) .txt i {	position:absolute; bottom:-20px; right:-15px; font-size:200px; color:#fff; opacity:0.7;}
+article .txt strong { font-size:30px;	font-weight:normal; line-height:1.6;	color:#444; margin-bottom:20px; transition:all 1s;}
+
+/*텍스트박스 호버효과*/
+article:hover .txt { background:#6ce2fb;	color:#fff;}
+article:hover .txt i { right:0px; opacity:0.5;}
+article:hover .txt strong { color:#fff;}
+/*-------------------------------------------------------------------*/
+
+
+/* == 미디어쿼리로 화면 폭마다 레이아웃 다르게 설정 == */
+@media screen and (min-width:1280px) and (max-width:1599px) {  
+	/* 레이아웃 */
+	/* - 기존에 왼쪽에 fixed로 설정되어 있던 <header>를 화면 상단에 배치하기 위해
+	     relative로 변경한 뒤, 넓이를 100%, 높이를 80px로 설정하고,
+	   - <nav>도 넓이를 100%로, 왼쪽 여백을 0%로 설정해 <header>아래쪽으로 배치
+	   - <section>도 넓이를 100%로, 왼쪽 여백을 0%로 설정해 <nav>아래쪽으로 배치 */
+	header { position:relative; width:100%; height:80px;}
+	nav { width:100%; margin-left:0%;}		
+	section { width:100%; margin-left:0px;}	
+	
+	/* header 컨텐츠 */	
+	header h1 { width:200px; height:40px; background-image:url(../img/logo2.png); 
+	            top:20px; left:20px; margin-left:0px;}	
+	#gnb { top:20px; right:200px;} /* #gnb 위치를 재 배치 */	
+	#gnb li { float:left;}/* li를 가로로 배치 */	
+	.snsSet { bottom:20px; right:80px;}
+
+}
+
+@media screen and (min-width:1024px) and (max-width:1279px) {  
+	/* 레이아웃 */
+	header { position:relative; width:100%; height:80px;}
+	nav { width:100%; margin-left:0%;}		
+	section { width:100%; margin-left:0px;}	
+	
+	/* <section>안쪽의 <article> 넓이의 값을 해당 폭에 맞게 모양을 변경 */	
+	article:nth-child(1) { width:75%;}	
+	article:nth-child(2) { width:25%;}	
+	article:nth-child(3) { width:25%;}	
+	article:nth-child(4) { width:25%;}	
+	article:nth-child(5) { width:25%;}	
+	article:nth-child(6) { width:50%;}	
+	article:nth-child(7) { width:50%;}	
+	article:nth-child(8) { width:25%;}	
+	article:nth-child(9) { width:25%;}	
+	article:nth-child(10) { width:50%;}	
+	article:nth-child(11) { width:25%;}	
+	article:nth-child(12) { width:25%;}	 
+	
+	/* header 컨텐츠 */	
+	header h1 { width:200px; height:40px; background-image:url(../img/logo2.png);	
+	            top:20px; left:20px; margin-left:0px;}
+	#gnb { top:20px; right:30px;}	
+	#gnb li { float:left;}	
+	.snsSet { display:none;}/* .snsSet 숨김 처리 */
+}
+
+@media screen and (min-width:780px) and (max-width:1023px) {  
+	/* 레이아웃 */
+	header { position:relative; width:100%; height:80px;}
+	nav { width:100%; margin-left:0%;}		
+	section { width:100%; margin-left:0px;}	
+	
+	/* 화면의 스크롤이 너무 길어지는 것을 방지하기 위해 몇몇 중요도가 낮은 <article>은 숨김 처리하고
+	   레이아웃을 재설정	 */
+	article:nth-child(1) { width:100%;	height:400px;}	
+	/* 가변 그리드 공식 : (가변 크기로 만들 요소의 가로 너비 / 부모 요소의  가로 너비) * 100 = 가변 크기 값 
+	    - 부모 요소 가로 너비 : 1600px
+	    - 가변크기로 만들 요소 가로 너비 : 1066.667px((1600*2/3)=1066.667px)
+	    - 가변크기 : (1066.667px/1600px)*100 = 66.6666...%                           */
+	article:nth-child(2) { width:66.6666%;}/* 가변 그리드 계산 : (100*2)/3 =66.6666...) */	
+	article:nth-child(3) { width:33.3333%;}	
+	article:nth-child(4) { width:33.3333%; display:none;}/* 화면 숨김 */	
+	article:nth-child(5) { width:33.3333%;}	
+	article:nth-child(6) { width:66.6666%;}	
+	article:nth-child(7) { width:66.6666%; display:none;}/* 화면 숨김 */	
+	article:nth-child(8) { width:33.3333%;}	
+	article:nth-child(9) { width:33.3333%;}	
+	article:nth-child(10) { width:66.6666%; display:none;}/* 화면 숨김 */	
+	article:nth-child(11) { width:33.3333%;}	
+	article:nth-child(12) { width:33.3333%; display:none;}/* 화면 숨김 */
+
+	/* header 컨텐츠 */
+	header h1 { width:200px; height:40px; background-image:url(../img/logo2.png); 
+	   	     	top:20px; left:20px; margin-left:0px;}	
+	#gnb { top:20px; right:10px;}	
+	#gnb li { float:left;}	
+	#gnb a { padding:10px 10px;}/* 웹 아이콘의 아쪽 여백을 줄인다 */		
+	.snsSet { display:none;}/* .snsSet 숨김 처리 */	
+	
+}
+
+@media screen and (min-width:640px) and (max-width:779px) {  
+
+	/* 레이아웃 */
+	header { position:relative; width:100%; height:80px;}
+	nav { width:100%; margin-left:0%;}		
+	section { width:100%; margin-left:0px;}	
+	
+	article:nth-child(1) { width:100%;	height:400px;}
+	article:nth-child(2) { width:100%;}	
+	article:nth-child(3) { width:33.3333%; display:none;}	
+	article:nth-child(4) { width:100%;	display:none;}	
+	article:nth-child(5) { width:50%;}	
+	article:nth-child(6) { width:50%;}	
+	article:nth-child(7) { width:66.6666%; display:none;}	
+	article:nth-child(8) { width:50%;}	
+	article:nth-child(9) { width:50%;}	
+	article:nth-child(10) { width:66.6666%; display:none;}	
+	article:nth-child(11) { width:50%;}	
+	article:nth-child(12) { width:50%;}	
+	
+	/* header 컨텐츠 */
+	header h1 { width:200px; height:40px; background-image:url(../img/logo2.png); 
+				top:20px; left:20px; margin-left:0px;}	
+	#gnb { top:20px; right:10px;}	
+	#gnb li { float:left;}	
+	#gnb a { padding:10px 10px;}	
+	.snsSet { display:none;}	
+
+}
+
+@media screen and (min-width:480px) and (max-width:639px) {  
+
+	/* 레이아웃 */
+	header { position:relative; width:100%; height:130px;}	
+	nav { display:none;}
+	section { width:100%; margin-left:0px;}
+	article { height:150px;}	
+	
+	article:nth-child(1) { width:100%; height:300px;}		
+	article:nth-child(2) { width:100%;}	
+	article:nth-child(3) { width:33.3333%; display:none;}	
+	article:nth-child(4) { width:100%;	display:none;}	
+	article:nth-child(5) { width:50%;}	
+	article:nth-child(6) { width:50%;}	
+	article:nth-child(7) { width:66.6666%; display:none;}	
+	article:nth-child(8) { width:50%;}	
+	article:nth-child(9) { width:50%;}	
+	article:nth-child(10) { width:66.6666%; display:none;}	
+	article:nth-child(11) { width:50%;}	
+	article:nth-child(12) { width:50%;}		
+	
+	/* header 컨텐츠 */
+	/* 로고를 화면 가운데 배치하고, 로고 밑에 메뉴를 4등분하여 나란히 배치 */
+	header h1 { position:relative; top:20px; left:0px; width:200px; height:45px; 
+				background-image:url(../img/logo2.png); margin:0px auto;}
+	#gnb { width:100%; height:40px; top:80px; right:0px;}	
+	#gnb li { float:left; width:25%;}	
+	#gnb a { padding:4px; text-align:center;}	
+	.snsSet { display:none;}	
+
+    /* 첫 번째 이미지박스 부분의 <span> 텍스트와 텍스트 박스에서의 <em>텍스트가 잘리는 것을 보완
+       - 첫 번째 이미지박스의 <span>과 모든 텍스트 박스의 글자 크기와 위치를 재 설정한 뒤,
+         <em>요소는 숨김 처리함  */
+	article .bg1 span { font-size:120px; bottom:-50px;}	
+	article .txt strong { font-size:25px;}
+	article .txt em { display:none;}	
+
+}
+
+@media screen and (max-width:479px){
+	/* 레이 아웃 */
+	/* -<header>를 화면 전체의 넓이와 높이 값으로 설정하고, 첫 번째 <article>만 보이도록 설정
+	   -<header>의 배경색을 투명하게하여 <header>아래 배치되는 첫 번째 <article>의 배경색이 보이도록 설정함
+	   -나머지 모든 요소들은 숨김 처리함 */
+	  		
+	header { position:fixed; width:100%; height:40px; background-color:transparent; z-index:5;}
+	nav { display:none;}	
+	section { width:100%; margin-left:0px; z-index:4;}		
+	article { display:none;}
+	article:nth-child(1) { display:block; position:fixed; width:100%; height:100%;}	
+	
+	/* header 컨텐츠 */
+	header h1 { top:20px; width:140px; margin-left:-70px;}	
+	#gnb { width:250px; top:140px; right:50%; margin-right:-125px;}	
+	#gnb a { width:100%; background:#000; box-sizing:border-box; margin:8px 0px; 
+			 border-radius:10px; opacity:0.5; color:#fff;}	
+	/* 마우스 오버 시 1.1배 확대하면서 투명도가 0.5에서 1로 선명함 */		 
+	#gnb a:hover { opacity:1; transform:scale(1.1);}
+	
+	/* 첫 번째 이미지 박스의 span요소만 숨김 처리 */
+	article:nth-child(1) span { display:none;}
+		
+}

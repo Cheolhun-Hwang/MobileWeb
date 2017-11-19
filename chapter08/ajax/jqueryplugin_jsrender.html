@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<title>jQuery Plugin jsRender</title>
+	<style>
+		table  { width: 400px; border:1px solid black; border-collapse:collapse; }
+		td, th { border:1px solid black;  text-align:center; }
+		table > thead > tr { color:yellow; background-color: purple; }
+	</style>
+	<script src="./js/jquery-3.2.1.min.js"></script>
+	<script src="./js/jsrender.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {	
+            var url = "address.json";
+            
+			//jsRender 플러그인을 사용한 방법
+			$.get(url, function(data) {//(2) 템플릿에 사용할 데이터 로드
+				var tmpl = $.templates("#contact_template");//정의한 템플릿을 변수에 저장
+				var str =  tmpl.render(data.studentAddress);//(3) render() 메서드로 템플릿에 데이터 랜더링(HTML DOM객체)
+				console.log(str);
+				$("#container").html(str);//(4)랜더링에 의해 생성한 HTML DOM객체를 해당 위치에 삽입
+			});
+			
+			/* //jsRender 플러그인을 사용하지 않은 경우 
+		    $.ajax({
+		      url:"address.json", //데이터를 요청할 URL 주소
+		      dataType:"json", //데이터 타입 설정
+		      success:function(data){ //데이터 성공적으로 요청되었을 때...
+		      	 var str = "<tr>";
+		      	 $.each(data.studentAddress, function(i,dat){         	
+		             //일반적인 문자열 결합 방법
+			         str += "<td>"+this.no + "</td>" +
+			                "<td>"+this.name + "</td>" +
+			                "<td>"+this.tel + "</td>" +
+			                "<td>"+this.address + "</td>" + 
+			                "</tr>";
+				
+		         });
+		 		 $("#container").html(str);
+		      }
+		   }); 
+		   */
+		});
+	</script>
+	
+	<!--(1) jsRender 템플릿 정의 -->
+	 <script id="contact_template" type="text/x-jsrender">
+		<tr>
+			<td>{{:no}}</td>
+			<td>{{:name}}</td>
+			<td>{{:tel}}</td>
+			<td>{{:address}}</td>
+		</tr>
+	</script>
+</head>
+<body>
+	<table id="list">
+		<thead>
+			<tr><th>번호</th><th>이름</th><th>전화번호</th><th>주소</th></tr>
+		</thead>
+		<!-- 학생 주소록 출력 요소 -->
+		<tbody id="container">
+		
+		</tbody>
+	</table>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Bootstrap, Components </title>
+
+    <!-- Bootstrap css -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/kfont.css" rel="stylesheet">
+    <link href="css/doc.css" rel="stylesheet">
+    <!-- Fontawesome css -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="js/bootstrap.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and Media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .red {
+            color: #FF0000
+        }
+        
+        .blue {
+            color: #0080FF
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- components
+  		- 부트스트랩에서 아이콘 넣는 방법 : glyphicons, fontawesome 두가지
+  		- fontawesome이 아이콘이 다양하기 때문에 많이 사용함
+  		- 아이콘은 폰트로 만들어져 있으므로 색이나 크기 변경가능
+  		- glyphicons 아이콘 사용	
+        -->
+
+    <div class="container">
+        <hr>
+        <div class="btn-toolbar">
+            <div class="btn-group">
+                <button type="button" class="btn btn-default">
+	            <span class="glyphicon glyphicon-align-left"> </span>
+	          </button>
+                <button type="button" class="btn btn-default">
+	            <span class="glyphicon glyphicon-align-center"> </span>
+	          </button>
+                <button type="button" class="btn btn-default">
+	            <span class="glyphicon glyphicon-align-right"> </span>
+	          </button>
+                <button type="button" class="btn btn-default">
+	            <span class="glyphicon glyphicon-align-justify"> </span>
+	          </button>
+            </div>
+        </div>
+
+        <hr>
+        <button type="button" class="btn btn-default btn-lg">
+	           <span class="glyphicon glyphicon-cog"> </span> 설정 
+	    </button>
+        <button type="button" class="btn btn-default">
+            <span class="glyphicon glyphicon-cog"> </span> 설정 
+        </button>
+        <button type="button" class="btn btn-default btn-sm">
+            <span class="glyphicon glyphicon-cog"> </span> 설정 
+        </button>
+        <button type="button" class="btn btn-default btn-xs">
+            <span class="glyphicon glyphicon-cog"> </span> 설정 
+        </button>
+        <hr>
+        <span class="glyphicon glyphicon-phone-alt"> </span> 123-4567-8912
+
+        <hr>
+        <button type="button" class="btn btn-default">
+            <span class="glyphicon glyphicon-thumbs-up"> </span> 좋아요 
+        </button>
+
+        <button type="button" class="btn btn-default red">
+            <span class="glyphicon glyphicon-thumbs-up"> </span> 좋아요 
+        </button>
+
+        <button type="button" class="btn btn-default blue">
+            <span class="glyphicon glyphicon-thumbs-up"> </span> 좋아요 
+        </button>
+
+        <hr>
+        <button type="button" class="btn btn-default btn-lg btn-primary">
+          <span class="glyphicon glyphicon-euro"> </span>  3,000 
+       </button>
+        <button type="button" class="btn btn-default btn-lg btn-warning">   
+          <span class="glyphicon glyphicon-exclamation-sign"> </span> Info 
+       </button>
+        <button type="button" class="btn btn-default btn-lg btn-danger">    
+          <span class="glyphicon glyphicon-facetime-video"> </span> video 
+       </button>
+
+    </div>
+</body>
+</html>

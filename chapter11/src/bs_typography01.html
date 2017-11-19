@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Bootstrap, Responsive util</title>
+
+    <!-- Bootstrap css -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="js/bootstrap.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and Media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <style>
+        body>div {
+            border: 1px solid gray;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Typegraphy
+		h1:36px, h2:30px, h3:24px, h4:18px, h5:14px, h6:12px
+		lead: 눈에 띄도록 문장을 표현
+		text 정렬: text-left, text-center, text-right
+		-->
+    <div class="container">
+        <p class="lead text-left"> container </p>
+        <h1>h1. Bootstrap heading <small>Secondary text(36px)</small></h1>
+        <h2>h2. Bootstrap heading <small>Secondary text(30px)</small></h2>
+        <h3>h3. Bootstrap heading <small>Secondary text(24px)</small></h3>
+        <h4>h4. Bootstrap heading <small>Secondary text(18px)</small></h4>
+        <h5>h5. Bootstrap heading <small>Secondary text(14px)</small></h5>
+        <h6>h6. Bootstrap heading <small>Secondary text(12px)</small></h6>
+        <div class="row">
+            <p class="lead text-center"> row </p>
+            <h1>h1. Bootstrap heading <small>Secondary text(36px)</small></h1>
+            <h2>h2. Bootstrap heading <small>Secondary text(30px)</small></h2>
+            <h3>h3. Bootstrap heading <small>Secondary text(24px)</small></h3>
+            <h4>h4. Bootstrap heading <small>Secondary text(18px)</small></h4>
+            <h5>h5. Bootstrap heading <small>Secondary text(14px)</small></h5>
+            <h6>h6. Bootstrap heading <small>Secondary text(12px)</small></h6>
+
+            <div class="col-md-12">
+                <p class="lead text-right"> col </p>
+                <h1>h1. Bootstrap heading <small>Secondary text(36px)</small></h1>
+                <h2>h2. Bootstrap heading <small>Secondary text(30px)</small></h2>
+                <h3>h3. Bootstrap heading <small>Secondary text(24px)</small></h3>
+                <h4>h4. Bootstrap heading <small>Secondary text(18px)</small></h4>
+                <h5>h5. Bootstrap heading <small>Secondary text(14px)</small></h5>
+                <h6>h6. Bootstrap heading <small>Secondary text(12px)</small></h6>
+            </div>
+        </div>
+        <hr>
+    </div>
+</body>
+</html>

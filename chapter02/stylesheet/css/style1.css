@@ -1,0 +1,14 @@
+@charset "utf-8";
+/*  Reset CSS  */
+* { margin:0;  padding:0;}
+ol,ul { list-style: none; }
+a { outline:0; text-decoration:none; color:#555; }
+img { border:0;}
+
+
+span {font: bold 70px/1.6 Verdana; color: lightblue; margin:50px;}
+
+/* 가로축거리 세로축거리, 퍼짐도(blur) 색상 */
+span:nth-child(1) {text-shadow: 5px 5px 5px #333;}
+span:nth-child(2) {text-shadow: -5px -5px 10px #333;}
+
