@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <!-- Theme Made By www.w3schools.com - No Copyright -->
+  <title>Bootstrap Theme Company Page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="./assets/css/bootstrap.css">
+  <link href="./assets/css/bootstrap-theme.css">
+  <link href="./assets/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+  img{
+    padding:0%;
+    margin: 0%;
+  }
+  body {
+      font: 400 15px Lato, sans-serif;
+      line-height: 1.8;
+      color: #818181;
+  }
+  h2 {
+      font-size: 24px;
+      text-transform: uppercase;
+      color: #303030;
+      font-weight: 600;
+      margin-bottom: 30px;
+  }
+  h4 {
+      font-size: 19px;
+      line-height: 1.375em;
+      color: #303030;
+      font-weight: 400;
+      margin-bottom: 30px;
+  }
+
+  .control {
+    position: absolute;
+    top: 50%;
+    z-index: 5;
+    display: inline-block;
+  }
+
+  #searchArea, #result{
+    margin-top: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 5%;
+  }
+
+  .header{
+    margin: 0%;
+    padding: 0%;
+  }
+
+  .navbar-brand img{
+    width: 20%;
+    height: auto;
+    margin: 0%;
+    padding:0%;
+  }
+  
+/* 네비게이션바 스타일 설정 */
+.navbar{ background-color: #ffb900; color: #fff; border: none; padding-bottom: 10px; font-weight: 300; font-size: 20px;height: 10%; text-transform: capitalize; border-bottom: 1px solid #AAAAAA}
+.navbar-toggle {position: relative;margin-top: 30px;}
+.navbar-nav {  }
+.navbar-nav li { text-align:center; padding-left: 15px;} 
+.navbar-collapse { padding-top: 10px; background-color: #ffb900}
+.navbar-default .navbar-nav>li>a{color: #fff; font-family: Montserrat;}
+.navbar-default .navbar-nav>li>a:hover { color: #FF8000;background-color: #fff;} 
+.navbar-default .navbar-nav>li.active>a,
+.navbar-default .navbar-nav>li.active>a:hover,
+.navbar-default .navbar-nav>li.active>a:focus{ color: #FF8000; background-color: #fff} 
+
+#wrapper{
+  padding: 0%;
+  margin-top: 5%;
+
+}
+
+  footer .glyphicon {
+      font-size: 40px;
+      margin-bottom: 20px;
+      color: #ffb900;
+  }
+     
+  .slideanim {visibility:hidden;}
+  .slide {
+      animation-name: slide;
+      -webkit-animation-name: slide;
+      animation-duration: 1s;
+      -webkit-animation-duration: 1s;
+      visibility: visible;
+  }
+  @keyframes slide {
+    0% {
+      opacity: 0;
+      transform: translateY(70%);
+    } 
+    100% {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }
+  @-webkit-keyframes slide {
+    0% {
+      opacity: 0;
+      -webkit-transform: translateY(70%);
+    } 
+    100% {
+      opacity: 1;
+      -webkit-transform: translateY(0%);
+    }
+  }
+  </style>
+</head>
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+<div class="header">
+    <nav class="navbar navbar-default container-fluid">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>                        
+            </button>
+            <a class="navbar-brand logo" href="./practice.html"><img id="logo" src="./assets/img/logo.png" style="margin:0%;padding:0%;width:15%;height:auto"></a>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="">SEARCH</a></li>
+              <li><a href="">RANKING</a></li>
+              <li><a href="">TREND</a></li>
+              <li><a href="">LOGIN</a></li> 
+            </ul>
+          </div>
+        </div>
+      </nav>
+</div>
+
+<div class="container-fluid">
+    <!-- navbar 영역 설정 -->
+    <div class="container">
+        <!-- 반응형 네비게이션 navbar 메뉴 설정
+            - 화면너비가 넓으면 navbar-collapse가 표시되고, navbar-toggle(버튼)은 숨겨짐
+            - 화면너비가 작으면 navbar-collapse은 숨겨지고, navbar-toggle(버튼)이 표시됨
+        -->
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="navbar-scroll">
+            <div class="container">
+                <!-- 모바일용 어코디언 버튼(토글버튼) 설정-->
+                <div class="navbar-header">
+                    <!-- 토글 버튼 설정-->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                        <span class="sr-only">Toggle navigation</span><!-- 웹접근성, 화면에 표시 안된 -->
+                        <span class="icon-bar"></span><!-- 토글 버튼의 수평바 -->
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                    <!-- Brand 로고 설정-->
+                    <a class="navbar-brand" href="#"><img src="./assets/img/logo.png" alt="9PixelStudio"> </a>
+                </div><!-- /.navbar-header -->
+
+                <!-- navbar-collapse 설정(.navbar-ex1-collapse) -->
+                <div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
+                    <!-- navbar-nav 메뉴 li 설정 -->
+                    <ul class="nav navbar-nav">
+                       <li><a href="#home" onclick="$('#home').animatescroll();">home </a></li> 
+                       <li><a href="#about" onclick="$('#about').animatescroll();">about </a></li>  
+                       <li><a href="#portfolio" onclick="$('#portfolio').animatescroll();">portfolio </a></li>  
+                       <li><a href="#contact" onclick="$('#contact').animatescroll();">contact </a></li>
+                    </ul>
+                </div><!-- /.navbar-ex1-collapse -->
+            </div><!-- /.container -->
+        </nav><!-- /#navbar-scroll -->
+    </div><!-- /.container -->
+
+<div id="wrapper">
+    <div id="carousel-example-generic" class="carousel slide">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Carousel items -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <img src="./assets/img/jumbo2.jpg" alt="First slide">
+            </div>
+            <div class="item">
+                <img src="./assets/img/jumbo2.jpg" alt="Second slide">
+            </div>
+            <div class="item">
+                <img src="./assets/img/jumbo2.jpg" alt="Third slide">
+            </div>
+        </div>
+        <!-- Controls -->
+        <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+            <!-- <span class="icon-prev"></span> -->
+            <img src="./assets/img/left.png" class="control">
+        </a>
+        <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+            <!--  <span class="icon-next"></span> -->
+            <img src="./assets/img/right.png" class="control">
+        </a>
+    </div>
+
+    <div id="searchArea">
+        <h3>찾아보기</h3>
+        <div id="filter">
+          <select id="C1_loc" name="C1_loc" class="selectpicker">
+            <option>서울</option>
+            <option>인천</option>
+          </select>
+
+          <select id="C1_loc" name="C1_loc" class="selectpicker">
+            <option>강남구</option>
+            <option>강서구</option>
+          </select>
+
+          <select id="C1_loc" name="C1_loc" class="selectpicker">
+            <option>헤어</option>
+            <option>여성</option>
+          </select>
+          
+          <input type="text" name="search_key" value="" size="20" />
+          <input type="submit" name="search" value="검색하기" /> 
+
+        </div>
+
+        <div id="result">
+
+            <div class="row">
+                <div class="col-sm-6 col-md-4">
+                  <div class="thumbnail">
+                    <img src="./assets/img/1.PNG" alt="...">
+                    <div class="caption">
+                      <h3>Thumbnail label</h3>
+                      <p>...</p>
+                      <p align="center"><a href="#" class="btn btn-primary" role="button">자세히 보기</a></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+        </div>
+    </div>
+
+</div>
+
+
+
+<footer class="container-fluid text-center">
+  <a href="#myPage" title="To Top">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a>
+  <p>Copyright © All Rights Reserved</p>
+</footer>
+
+<script>
+$(document).ready(function(){
+  // Add smooth scrolling to all links in navbar + footer link
+  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 900, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+  
+  $(window).scroll(function() {
+    $(".slideanim").each(function(){
+      var pos = $(this).offset().top;
+
+      var winTop = $(window).scrollTop();
+        if (pos < winTop + 600) {
+          $(this).addClass("slide");
+        }
+    });
+  });
+
+  $('carousel-inner').carousel({
+    interval : 3000
+  });
+})
+</script>
+
+</body>
+</html>

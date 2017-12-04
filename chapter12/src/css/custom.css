@@ -1,0 +1,156 @@
+/* 네비게이션바에서 사용되는 폰트를 구글 웹 폰트로 설정 */ 
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400);
+/* 글꼴 지정 : 나눔바른고딕 */
+@font-face{
+font-family:'NanumBarunGothic';
+src:url("fonts/NanumBarunGothic.eot");
+src:local("☺"),url("../fonts/NanumBarunGothic.woff") format("woff");
+}
+/* 네비바 마우스 오버시 스타일 지정 */ 
+a:hover { text-decoration: none;}
+/* 캐러셀 이미지가 고정된 네비바에 가리는 부분 해결 */  
+body {font-family: "NanumBarunGothic",  sans-serif; padding-top: 90px; }  
+.container-fluid { padding: 0;}
+/* 네비게이션바 스타일 설정 */
+.navbar{ background-color: #fff; border: none; padding-bottom: 10px;  font-family: 'Source Sans Pro', sans-serif; font-weight: 300; font-size: 18px;height: 90px; text-transform: capitalize; border-bottom: 1px solid #AAAAAA}
+.navbar-toggle {position: relative;margin-top: 30px;}
+.navbar-nav { padding-right: 10px; margin-top: 20px; background-color: #fff}
+.navbar-nav li { margin:0 20px; }
+.navbar-brand { padding-left: 20px;}  
+.navbar-collapse { padding-top: 10px; background-color: #fff}
+.navbar-default .navbar-nav>li>a:hover { color: #FF8000} 
+.navbar-default .navbar-nav>li.active>a,
+.navbar-default .navbar-nav>li.active>a:hover,
+.navbar-default .navbar-nav>li.active>a:focus
+ { color: #FF8000; background-color: #fff} 
+
+/* 캐러셀 컨트롤 이미지(이전-다음페이지) 스타일 지정*/
+.control { position: inherit; top: 50%; z-index: 5; display: inline-block; right: 50%;} 
+
+/* 해상도가 최대 320픽셀인 경우 로고 이미지 크기를 줄이고 상단 마진값(margin-top:-100px)을 조정하여 위로 올림 */ 
+@media (max-width: 320px)  {
+  .navbar-brand img { width: 80%; height: auto; margin-top:-100px}  
+}
+
+/* 최대 해상도가 980픽셀일 때 각 메뉴사이의 간격을 10픽셀로 조정 */
+@media (max-width: 980px) {
+  .navbar-nav li { margin:0 10px;}
+}
+
+/* 아이콘 부분 스타일 지정 */
+/* 캐러셀과 아이콘 사이의 간격을 조정(상하간격) */
+.service {margin: 40px 0;}
+/* .service 클래스의 a 태그 속성을 block로 지정 */
+.service a { display: block;}
+/* 아이콘에 스타일 지정 */   
+.icons {      
+     float: left;
+     display: block;
+     font-size: 30px;
+     color: #fff;
+     background-color: #FF8000;
+     border-radius: 50%;
+     text-align: center;
+     margin-right: 15px ;
+     padding: 20px;
+     border:4px solid #FF8040;
+     transition: all 0.3s;
+    }  
+
+/* 아이콘에 마우스 오버시 색상 변경 */ 		
+.service a:hover .icons  { background-color:#0080C0;}
+
+/* 아이콘 제목에 마우스 오버시 색상 변경 */ 	
+.service a:hover .icontxt h4 { color: #0080FF; }
+
+/* icontxt 클래스 부분 스타일 지정 */
+.icontxt { display: block; color: #2E2F28; text-align: left; } 
+/* icontxt 클래스의 제목(h4) 스타일 지정 */
+.icontxt h4 {font-weight: bold; font-family: 'Source Sans Pro'; font-size: 20px; text-transform: uppercase; text-align: left;}
+
+/* 해상도가 768픽셀 이하인 경우 아이콘과 제목 정렬 */
+@media (min-width: 768px) {
+  .icons { margin: 0 auto; position: relative; left: 30%;}
+  .icontxt h4 { text-align: center;}
+}
+
+/* 최대 해상도가 360픽셀인 경우 텍스트가 사라지게 스타일 지정 */
+@media (max-width: 360px) {
+  .icontxt p { display: none; }
+  .icontxt {line-height:10px; padding: 0; margin: 0;}
+  .icontxt h4 { display: none; }
+  .icons { padding: 20px; margin: 10px 0 10px 20px; }
+  .book img { width: 50%; height: auto;}
+  .control { display: none;} 
+}
+
+/* About 부분 스타일 지정 */
+header { color: #fff; text-align: center; padding: 40px 0;}
+header small { color: #fff}
+header p { color: #C0C0C0}
+.sans {  font-family: 'Source Sans Pro', sans-serif; }
+
+/* 헤더 부분 백그라운드 처리 */
+.content1 {
+  background:url(../img/slide1_bg.jpg)  no-repeat center top fixed;
+ background-size:cover; 
+}
+.about p { line-height: 1.8em; font-size: 15px; color: #282923}
+/* .about, .portfolio, .contact 클래스 상하 패딩 설정  */
+.about, .portfolio, .contact { padding: 50px 0;}
+/*  nav-fix 때문에 생기는 공백 상쇄 */
+#about, #portfolio, #contact { margin-top: -85px; padding-top: 85px }  /*  nav-fix 때문에 생기는 공백 상쇄 */
+/* 컬랩스 부분에 대한 속성 적용*/
+.panel a {  display: block; color: #000}
+.panel a.collapsed { color: #0080C0 }
+.panel-body { color:#804000}
+
+/* 책 부분에 대한 속성 적용*/
+.book{ margin-left: 10px;}
+.book2, .book3, .book4 { position: relative; float: left; }
+.book2 { z-index: 1; }
+.book3 { z-index: 10; margin-left: -100px; }
+.book4 { z-index: 20; margin-left: -100px;}
+
+/*포트폴리오 헤더 부분 */
+.content2 {
+  background:url(../img/slide1_bg.jpg)  no-repeat center center fixed;
+ background-size:cover; 
+}
+/*포트폴리오 사이트 부분 */
+.site { height: 330px;}
+.site h4 { border-bottom: 1px solid #C0C0C0; font-size: 16px; padding-bottom: 5px }
+
+/* Contact 와 footer 부분 */
+.contact { padding: 50px 0;}
+
+.content3 {
+  background:url(../img/slide1_bg.jpg)  no-repeat center bottom fixed;
+ background-size:cover; 
+}
+
+.form-group input[type="text"], .form-group textarea { border-radius: 0;}
+
+.required {
+    background: url(../img/required.png) right top no-repeat;
+}
+
+button.send_btn {
+    cursor: pointer;
+    background:url(../img/pattern.png) repeat;
+    color: #FFF;
+    margin:0 10px 0 0;
+    display: inline-block;
+    padding: 0 20px;
+    height:40px;
+    line-height:40px;
+    font-size: 14px;
+    width: auto;
+    border:0;
+}
+button.send_btn:hover {
+     background-image:url(../img/color_pattern.png);
+     text-decoration:none;
+}
+
+footer { padding: 40px 0; color: #fff; text-align: center;}

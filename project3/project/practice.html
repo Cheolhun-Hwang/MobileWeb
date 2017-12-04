@@ -30,8 +30,19 @@
       font-weight: 400;
       margin-bottom: 30px;
   }  
+  .logo{
+    display: inline-block;
+  }
+  .logo > img{
+    float: left;
+    display: inline-block;
+  }
+  .logo > font{
+    float: left;
+    display: inline-block;
+  }
   .jumbotron {
-      
+      margin-top: 4%;
       background-image:url(assets/img/jumbo.jpg);
       color: #fff;
       padding: 100px 25px;
@@ -53,14 +64,6 @@
       }
   .bg-grey {
       background-color: #f6f6f6;
-  }
-  .logo-small {
-      color: #ffb900;
-      font-size: 50px;
-  }
-  .logo {
-      color: #ffb900;
-      font-size: 200px;
   }
   .thumbnail {
       padding: 0 0 15px 0;
@@ -93,7 +96,7 @@
       font-style: normal;
   }
   .panel {
-      border: 1px solid #ffb900<br>; 
+      border: 1px solid #ffb900; 
       border-radius:0 !important;
       transition: box-shadow 0.5s;
   }
@@ -131,24 +134,30 @@
       color: #fff;
   }
   .navbar {
+      padding-top: 2%;
       margin-bottom: 0;
       background-color: #ffb900;
       z-index: 9999;
       border: 0;
-      font-size: 12px !important;
-      line-height: 1.42857143 !important;
       letter-spacing: 4px;
       border-radius: 0;
       font-family: Montserrat, sans-serif;
   }
+
+  .navbar ul{
+    text-align: right;
+  }
   .navbar li a, .navbar .navbar-brand {
+      height:100%;
       color: #fff !important;
   }
   .navbar-nav li a:hover, .navbar-nav li.active a {
+      height:100%;
       color: #ffb900 !important;
       background-color: #fff !important;
   }
   .navbar-default .navbar-toggle {
+      height:100%;
       border-color: transparent;
       color: #fff !important;
   }
@@ -207,15 +216,15 @@
 
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container">
-    <div class="navbar-header">
+    <div class="navbar-header col-md-6">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="#myPage">LOGO</a>
+      <a class="navbar-brand logo" href="#myPage" style="margin:0%;padding:0%;"><img id="logo" src="./assets/img/logo.png" style="width:11%;height:auto"></a>
     </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
+    <div class="collapse navbar-collapse col-md-6" id="myNavbar" style="height:120%;">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="">SEARCH</a></li>
         <li><a href="">RANKING</a></li>
